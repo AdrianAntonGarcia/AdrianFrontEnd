@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
-import './navigation.css';
+import './navigation.scss';
 interface Props {}
 
 export const Navigation = (props: Props) => {
