@@ -7,7 +7,6 @@ interface Props {
 export const ThemeChanger = ({ children }: Props) => {
   const { Provider } = ThemeContext;
   const [themeState, setThemeState] = useState(false);
-
   const handleChange = () => {
     setThemeState(!themeState);
     if (themeState) {
