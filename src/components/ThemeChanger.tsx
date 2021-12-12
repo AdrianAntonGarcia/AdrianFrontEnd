@@ -8,7 +8,13 @@ export const ThemeChanger = ({ children }: Props) => {
   const { Provider } = ThemeContext;
   const [themeState, setThemeState] = useState(false);
   const handleChange = () => {
-    setThemeState(!themeState);
+    setThemeState((prevState) => !prevState);
+  };
+  useEffect(() => {
+    const theme = localStorage.getItem('Theme');
+    if (theme === 'dark') setThemeState(true);
+  }, []);
+  useEffect(() => {
     if (themeState) {
       localStorage.setItem('Theme', 'dark');
       document.body.classList.add('dark');
@@ -16,11 +22,10 @@ export const ThemeChanger = ({ children }: Props) => {
       localStorage.setItem('Theme', 'light');
       document.body.classList.remove('dark');
     }
-  };
-  useEffect(() => {
-    const getTheme = localStorage.getItem('Theme');
-    if (getTheme === 'dark') return document.body.classList.add('dark');
-  });
+
+    // if (getTheme === 'dark') return document.body.classList.add('dark');
+  }, [themeState]);
+
   return (
     <Provider value={{ darkMode: themeState, changeTheme: handleChange }}>
       {children}

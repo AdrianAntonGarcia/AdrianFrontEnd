@@ -9,11 +9,11 @@ export const Navigation = (props: Props) => {
   return (
     <BrowserRouter>
       <nav>
-        <ul className={darkMode ? 'navBar' : 'navBar dark'}>
+        <ul className={darkMode ? 'navBar dark' : 'navBar'}>
           <li className="navItem">login</li>
           <li className="navItem">register</li>
           <li className="navItem">
-            <button onClick={changeTheme}>dark mode {darkMode}</button>
+            <button onClick={() => changeTheme()}>dark mode</button>
           </li>
         </ul>
       </nav>
