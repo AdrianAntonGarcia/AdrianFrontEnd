@@ -3,12 +3,27 @@
 .navBar {
   background-color: $primary-light;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
+  flex: 1;
   margin: 0;
   overflow-x: visible;
-  padding: 20px 20px 20px 20px;
-  width: 100vw;
+}
+
+.ulFirst {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.ulLast {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
 }
 
 .navBar.dark {
@@ -16,11 +31,16 @@
 }
 
 .navItem {
-  margin-left: 20px;
-  list-style: none;
   color: $text-color;
+  list-style: none;
+  margin-left: 1rem;
 }
 
 .navItem.dark {
   color: $text-color-dark;
+}
+
+.nav-active {
+  color: white;
+  transition: all 0.3s ease-out;
 }
