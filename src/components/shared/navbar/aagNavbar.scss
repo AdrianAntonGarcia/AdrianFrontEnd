@@ -1,4 +1,5 @@
 @import '../../../scss/colors.scss';
+@import '../../../scss//breakingPoints.scss';
 
 .navBar {
   align-items: center;
@@ -13,21 +14,26 @@
 
 .ulFirst {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   flex-wrap: wrap;
   flex: 1;
   padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  @include small {
+    flex-direction: row;
+    flex: 1;
+  }
 }
 
 .ulLast {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-  flex: 1;
+  flex: 4;
   margin-left: 1rem;
   padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  @include small {
+    flex: 1;
+  }
 }
 
 .liNone {
