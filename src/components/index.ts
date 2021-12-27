@@ -1,2 +1,2 @@
-export { AagNavbar } from './shared/navbar/AagNavbar';
+export { AagNavbar } from './shared/aagNavbar/AagNavbar';
 export { AagButton } from './shared/aagButton/AagButton';
