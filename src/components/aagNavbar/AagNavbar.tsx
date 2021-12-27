@@ -1,5 +1,5 @@
 import './aagNavbar.scss';
-import { AagButton } from '../..';
+import { AagButton } from '..';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
