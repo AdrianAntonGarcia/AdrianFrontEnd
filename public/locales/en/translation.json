@@ -1,0 +1,9 @@
+{
+    "navbar": {
+        "DarkMode": "Dark mode",
+        "Home": "Home",
+        "LightMode": "Light mode",
+        "Login": "Login",
+        "Register": "Register"
+    }
+}

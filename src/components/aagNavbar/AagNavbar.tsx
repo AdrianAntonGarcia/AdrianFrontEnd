@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export interface Props {
-  changeTheme?: () => any;
+  changeTheme?: () => void;
   theme: 'dark' | 'light';
 }
 
@@ -31,7 +31,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
         <li className="liNone liLast">
           <AagButton
             onClick={!!changeTheme ? changeTheme : () => {}}
-            label={darkMode ? t('LightMode') : t('DarkMode')}
+            label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
             theme={darkMode ? 'dark' : 'light'}
           />
         </li>
@@ -42,7 +42,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
               isActive ? 'nav-active navItem' : 'navItem'
             }
           >
-            {t('Register')}
+            {t('navbar.Register')}
           </NavLink>
         </li>
         <li className="liNone liLast">
@@ -52,7 +52,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
               isActive ? 'nav-active navItem' : 'navItem'
             }
           >
-            {t('Login')}
+            {t('navbar.Login')}
           </NavLink>
         </li>
       </ul>
@@ -64,7 +64,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
               isActive ? 'nav-active navItem' : 'navItem'
             }
           >
-            {t('Home')}
+            {t('navbar.Home')}
           </NavLink>
         </li>
       </ul>
