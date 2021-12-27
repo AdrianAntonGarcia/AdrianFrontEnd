@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import './aagNavbar.scss';
 import { AagButton } from '../..';
+import { NavLink } from 'react-router-dom';
 import { ThemeContext } from '../../../context';
+import { useContext } from 'react';
 
 export const AagNavbar = () => {
   const { darkMode, changeTheme } = useContext(ThemeContext);
