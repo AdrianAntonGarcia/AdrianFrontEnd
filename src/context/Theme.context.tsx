@@ -1,10 +1,13 @@
-import { useEffect, useState, ReactElement } from 'react';
-import { ThemeContext } from '../context';
+import { createContext, ReactElement, useEffect, useState } from 'react';
+import { ThemeContextInterface } from '../interfaces';
+
+export const ThemeContext = createContext({} as ThemeContextInterface);
+
 interface Props {
   children?: ReactElement | ReactElement[];
 }
 
-export const ThemeChanger = ({ children }: Props) => {
+export const ThemeChangerProvider = ({ children }: Props) => {
   const { Provider } = ThemeContext;
   const [themeState, setThemeState] = useState(false);
   const handleChange = () => {
@@ -22,8 +25,6 @@ export const ThemeChanger = ({ children }: Props) => {
       localStorage.setItem('Theme', 'light');
       document.body.classList.remove('dark');
     }
-
-    // if (getTheme === 'dark') return document.body.classList.add('dark');
   }, [themeState]);
 
   return (

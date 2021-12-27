@@ -1,11 +1,11 @@
-import { ThemeChanger } from './components';
+import { ThemeChangerProvider } from './context';
 import { Navigation } from './routes';
 export default function App() {
   return (
     <>
-      <ThemeChanger>
+      <ThemeChangerProvider>
         <Navigation />
-      </ThemeChanger>
+      </ThemeChangerProvider>
     </>
   );
 }
