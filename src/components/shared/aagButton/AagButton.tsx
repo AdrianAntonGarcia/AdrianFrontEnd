@@ -27,7 +27,7 @@ export const AagButton = ({
       className={`buttonContainer ${classNameContainer}`}
     >
       <button
-        onClick={onClick}
+        onClick={() => onClick()}
         style={styleButton}
         className={
           darkMode
