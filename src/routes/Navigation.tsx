@@ -16,14 +16,12 @@ export const Navigation = (props: Props) => {
         changeTheme={changeTheme}
         theme={darkMode ? 'dark' : 'light'}
       />
-      <div style={{ marginLeft: '1rem', marginTop: '10px' }}>
-        <Routes>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/*" element={<Navigate to="/home" replace />}></Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/*" element={<Navigate to="/home" replace />}></Route>
+      </Routes>
     </BrowserRouter>
   );
 };
