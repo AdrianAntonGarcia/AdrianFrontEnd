@@ -1,3 +1,11 @@
+import { ThemeChanger } from './components';
+import { Navigation } from './routes';
 export default function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <ThemeChanger>
+        <Navigation />
+      </ThemeChanger>
+    </>
+  );
 }
