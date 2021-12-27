@@ -19,21 +19,25 @@ export const Navigation = (props: Props) => {
     <BrowserRouter>
       <nav className={darkMode ? 'navBar dark' : 'navBar'}>
         <ul className="ulLast">
-          <li className="navItem">
+          <li className="liNone">
             <button onClick={() => changeTheme()}>dark mode</button>
           </li>
-          <li className="navItem">
+          <li className="liNone">
             <NavLink
               to="/register"
-              className={({ isActive }) => (isActive ? 'nav-active' : '')}
+              className={({ isActive }) =>
+                isActive ? 'nav-active navItem' : 'navItem'
+              }
             >
               Register
             </NavLink>
           </li>
-          <li className="navItem">
+          <li className="liNone">
             <NavLink
               to="/login"
-              className={({ isActive }) => (isActive ? 'nav-active' : '')}
+              className={({ isActive }) =>
+                isActive ? 'nav-active navItem' : 'navItem'
+              }
             >
               Login
             </NavLink>
@@ -42,7 +46,9 @@ export const Navigation = (props: Props) => {
         <ul className="ulFirst">
           <NavLink
             to="/home"
-            className={({ isActive }) => (isActive ? 'nav-active' : '')}
+            className={({ isActive }) =>
+              isActive ? 'nav-active navItem' : 'navItem'
+            }
           >
             Home
           </NavLink>
