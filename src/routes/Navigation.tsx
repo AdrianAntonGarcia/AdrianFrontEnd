@@ -3,13 +3,19 @@ import './navigation.scss';
 import { Login, Register } from '../pages';
 import { Home } from '../pages/home/Home';
 import { AagNavbar } from '../components';
+import { ThemeContext } from '../context';
+import { useContext } from 'react';
 
 interface Props {}
 
 export const Navigation = (props: Props) => {
+  const { darkMode, changeTheme } = useContext(ThemeContext);
   return (
     <BrowserRouter>
-      <AagNavbar />
+      <AagNavbar
+        changeTheme={changeTheme}
+        theme={darkMode ? 'dark' : 'light'}
+      />
       <div style={{ marginLeft: '1rem', marginTop: '10px' }}>
         <Routes>
           <Route path="/register" element={<Register />}></Route>

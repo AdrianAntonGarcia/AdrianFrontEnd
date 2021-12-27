@@ -35,7 +35,7 @@ export const AagButton = ({
             : `button ${classNameButton}`
         }
       >
-        {label}
+        <span style={{ marginTop: '3px' }}>{label}</span>
       </button>
     </div>
   );

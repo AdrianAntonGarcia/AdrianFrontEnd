@@ -1,21 +1,23 @@
 import './aagNavbar.scss';
 import { AagButton } from '../..';
 import { NavLink } from 'react-router-dom';
-import { ThemeContext } from '../../../context';
-import { useContext } from 'react';
 
-export const AagNavbar = () => {
-  const { darkMode, changeTheme } = useContext(ThemeContext);
+export interface Props {
+  changeTheme?: () => any;
+  theme: 'dark' | 'light';
+}
+
+export const AagNavbar = ({ changeTheme, theme }: Props) => {
+  const darkMode = theme === 'dark';
   return (
     <nav className={darkMode ? 'navBar dark' : 'navBar'}>
       <ul className="ulLast">
         <li className="liNone liLast">
           <AagButton
-            onClick={changeTheme}
+            onClick={!!changeTheme ? changeTheme : () => {}}
             label={darkMode ? 'Light mode' : 'Dark mode'}
             theme={darkMode ? 'dark' : 'light'}
           />
-          {/* <button onClick={() => changeTheme()}>dark mode</button> */}
         </li>
         <li className="liNone liLast">
           <NavLink
