@@ -1,6 +1,7 @@
 import './aagNavbar.scss';
 import { AagButton } from '../..';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export interface Props {
   changeTheme?: () => any;
@@ -9,13 +10,28 @@ export interface Props {
 
 export const AagNavbar = ({ changeTheme, theme }: Props) => {
   const darkMode = theme === 'dark';
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng: string | undefined) => {
+    i18n.changeLanguage(lng);
+  };
   return (
     <nav className={darkMode ? 'navBar dark' : 'navBar'}>
       <ul className="ulLast">
         <li className="liNone liLast">
           <AagButton
+            onClick={
+              i18n.language === 'es'
+                ? () => changeLanguage('en')
+                : () => changeLanguage('es')
+            }
+            label={i18n.language === 'es' ? 'en' : 'es'}
+            theme={darkMode ? 'dark' : 'light'}
+          />
+        </li>
+        <li className="liNone liLast">
+          <AagButton
             onClick={!!changeTheme ? changeTheme : () => {}}
-            label={darkMode ? 'Light mode' : 'Dark mode'}
+            label={darkMode ? t('LightMode') : t('DarkMode')}
             theme={darkMode ? 'dark' : 'light'}
           />
         </li>
@@ -26,7 +42,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
               isActive ? 'nav-active navItem' : 'navItem'
             }
           >
-            Register
+            {t('Register')}
           </NavLink>
         </li>
         <li className="liNone liLast">
@@ -36,7 +52,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
               isActive ? 'nav-active navItem' : 'navItem'
             }
           >
-            Login
+            {t('Login')}
           </NavLink>
         </li>
       </ul>
@@ -48,7 +64,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
               isActive ? 'nav-active navItem' : 'navItem'
             }
           >
-            Home
+            {t('Home')}
           </NavLink>
         </li>
       </ul>
