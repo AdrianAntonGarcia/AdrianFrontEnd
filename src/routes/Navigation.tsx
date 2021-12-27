@@ -10,6 +10,7 @@ import { ThemeContext } from '../context';
 import { useContext } from 'react';
 import { Login, Register } from '../pages';
 import { Home } from '../pages/home/Home';
+import { AagButton } from '../components';
 
 interface Props {}
 
@@ -19,10 +20,15 @@ export const Navigation = (props: Props) => {
     <BrowserRouter>
       <nav className={darkMode ? 'navBar dark' : 'navBar'}>
         <ul className="ulLast">
-          <li className="liNone">
-            <button onClick={() => changeTheme()}>dark mode</button>
+          <li className="liNone liLast">
+            <AagButton
+              onClick={changeTheme}
+              label={darkMode ? 'Light mode' : 'Dark mode'}
+              theme={darkMode ? 'dark' : 'light'}
+            />
+            {/* <button onClick={() => changeTheme()}>dark mode</button> */}
           </li>
-          <li className="liNone">
+          <li className="liNone liLast">
             <NavLink
               to="/register"
               className={({ isActive }) =>
@@ -32,7 +38,7 @@ export const Navigation = (props: Props) => {
               Register
             </NavLink>
           </li>
-          <li className="liNone">
+          <li className="liNone liLast">
             <NavLink
               to="/login"
               className={({ isActive }) =>
@@ -44,14 +50,16 @@ export const Navigation = (props: Props) => {
           </li>
         </ul>
         <ul className="ulFirst">
-          <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              isActive ? 'nav-active navItem' : 'navItem'
-            }
-          >
-            Home
-          </NavLink>
+          <li className="liNone">
+            <NavLink
+              to="/home"
+              className={({ isActive }) =>
+                isActive ? 'nav-active navItem' : 'navItem'
+              }
+            >
+              Home
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div style={{ marginLeft: '1rem', marginTop: '10px' }}>

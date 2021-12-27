@@ -1,0 +1,22 @@
+@import '../../scss/colors.scss';
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  background-color: $secondary-light;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid $secondary;
+  color: $text-color-dark;
+  cursor: pointer;
+  display: flex;
+  font-size: medium;
+  font-weight: bold;
+  padding: 0.6rem;
+}
+
+.button.dark {
+  background-color: $secondary-dark;
+}

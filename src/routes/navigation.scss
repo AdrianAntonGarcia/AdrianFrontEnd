@@ -4,6 +4,7 @@
   background-color: $primary-light;
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
   flex-wrap: wrap;
   flex: 1;
   margin: 0;
@@ -21,13 +22,18 @@
 .ulLast {
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
   flex-wrap: wrap;
+  margin-left: 1rem;
   flex: 1;
   padding: 0.5rem 1.5rem 0.5rem 0.5rem;
 }
 
 .liNone {
   list-style: none;
+}
+
+.liLast {
   margin-left: 1rem;
 }
 
