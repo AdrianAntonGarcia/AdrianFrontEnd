@@ -5,5 +5,9 @@
         "LightMode": "Light mode",
         "Login": "Login",
         "Register": "Register"
+    },
+    "login": {
+        "Email": "Email",
+        "Password": "Password"
     }
 }

@@ -5,5 +5,9 @@
         "LightMode": "Modo Claro",
         "Login": "Ingresar",
         "Register": "Registro"
+    },
+    "login": {
+        "Email": "Correo electrónico",
+        "Password": "Contraseña"
     }
 }

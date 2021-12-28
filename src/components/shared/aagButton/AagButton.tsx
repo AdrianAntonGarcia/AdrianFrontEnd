@@ -3,7 +3,8 @@ import './aagButton.scss';
 
 export interface Props {
   label: string;
-  onClick: () => any;
+  onClick?: () => any;
+  type?: 'button' | 'reset' | 'submit';
   classNameContainer?: string;
   classNameButton?: string;
   styleContainer?: CSSProperties;
@@ -12,13 +13,14 @@ export interface Props {
 }
 
 export const AagButton = ({
-  onClick,
-  classNameContainer,
   classNameButton,
+  classNameContainer,
   label,
-  styleContainer,
+  onClick = () => {},
   styleButton,
+  styleContainer,
   theme,
+  type = 'button',
 }: Props) => {
   const darkMode = theme === 'dark';
   return (
@@ -29,6 +31,7 @@ export const AagButton = ({
       <button
         onClick={() => onClick()}
         style={styleButton}
+        type={type}
         className={
           darkMode
             ? `button dark ${classNameButton}`
