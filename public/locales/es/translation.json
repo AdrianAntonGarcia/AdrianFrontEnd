@@ -8,6 +8,7 @@
     },
     "login": {
         "Email": "Correo electrónico",
-        "Password": "Contraseña"
+        "Password": "Contraseña",
+        "Login": "Ingresar"
     }
 }

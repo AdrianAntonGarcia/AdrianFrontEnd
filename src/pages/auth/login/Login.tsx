@@ -28,7 +28,7 @@ export const Login = (props: Props) => {
           />
           <div style={{ display: 'flex', flex: '1', justifyContent: 'center' }}>
             <AagButton
-              label="submit"
+              label={t('login.Login')}
               type="submit"
               theme={darkMode ? 'dark' : 'light'}
               styleContainer={{ marginTop: '5%' }}

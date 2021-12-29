@@ -8,6 +8,7 @@
     },
     "login": {
         "Email": "Email",
-        "Password": "Password"
+        "Password": "Password",
+        "Login": "Login"
     }
 }
