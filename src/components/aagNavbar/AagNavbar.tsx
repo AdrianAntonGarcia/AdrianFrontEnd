@@ -19,6 +19,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
       <ul className="ulLast">
         <li className="liNone liLast">
           <AagButton
+            buttonType="light"
             onClick={
               i18n.language === 'es'
                 ? () => changeLanguage('en')
