@@ -2,8 +2,9 @@ import './register.scss';
 import { ThemeContext } from '../../../context/Theme.context';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { AagButton, AagTextInput } from '../../../components';
 
 interface Props {}
 
@@ -28,22 +29,37 @@ export const Register = (props: Props) => {
           password1: Yup.string()
             .min(8, t('errors.Min8'))
             .max(30, t('errors.Max30'))
-            .matches(
-              /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-              t('errors.PasswordFormat')
-            )
             .required(t('errors.Required')),
           password2: Yup.string()
             .min(8, t('errors.Min8'))
             .max(30, t('errors.Max30'))
-            .matches(
-              /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-              t('errors.PasswordFormat')
-            )
             .required(t('errors.Required'))
-            .oneOf([Yup.ref('password1')], t('erros.PasswordMatch')),
+            .oneOf([Yup.ref('password1')], t('errors.PasswordMatch')),
         })}
-      ></Formik>
+      >
+        <Form className="formRegister">
+          <AagTextInput label={t('register.Name')} name="name" type="text" />
+          <AagTextInput label={t('login.Email')} name="email" type="email" />
+          <AagTextInput
+            label={t('login.Password')}
+            name="password1"
+            type="password"
+          />
+          <AagTextInput
+            label={t('register.PasswordConfirm')}
+            name="password2"
+            type="password"
+          />
+          <div style={{ display: 'flex', flex: '1', justifyContent: 'center' }}>
+            <AagButton
+              label={t('register.Register')}
+              type="submit"
+              theme={darkMode ? 'dark' : 'light'}
+              styleContainer={{ marginTop: '5%' }}
+            />
+          </div>
+        </Form>
+      </Formik>
     </div>
   );
 };

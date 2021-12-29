@@ -23,10 +23,6 @@ export const Login = () => {
           password: Yup.string()
             .min(8, t('errors.Min8'))
             .max(30, t('errors.Max30'))
-            .matches(
-              /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-              t('errors.PasswordFormat')
-            )
             .required(t('errors.Required')),
         })}
       >

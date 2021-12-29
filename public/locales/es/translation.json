@@ -11,6 +11,11 @@
         "Password": "Contraseña",
         "Login": "Ingresar"
     },
+    "register": {
+        "Name": "Nombre",
+        "PasswordConfirm": "Confirme contraseña",
+        "Register": "Registrarse"
+    },
     "errors": {
         "EmailError": "El formato del email no es correcto",
         "Required": "Requerido",
