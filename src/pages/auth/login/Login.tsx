@@ -4,13 +4,11 @@ import { Form, Formik } from 'formik';
 import { ThemeContext } from '../../../context';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 
-interface Props {}
-
-export const Login = (props: Props) => {
+export const Login = () => {
   const { t } = useTranslation();
   const { darkMode } = useContext(ThemeContext);
-
   return (
     <div className="container">
       <Formik
@@ -18,6 +16,19 @@ export const Login = (props: Props) => {
         onSubmit={(values) => {
           console.log(values);
         }}
+        validationSchema={Yup.object({
+          email: Yup.string()
+            .email(t('errors.EmailError'))
+            .required(t('errors.Required')),
+          password: Yup.string()
+            .min(8, t('errors.Min8'))
+            .max(30, t('errors.Max30'))
+            .matches(
+              /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+              t('errors.PasswordFormat')
+            )
+            .required(t('errors.Required')),
+        })}
       >
         <Form className="formLogin">
           <AagTextInput label={t('login.Email')} name="email" type="email" />

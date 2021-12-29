@@ -10,5 +10,12 @@
         "Email": "Email",
         "Password": "Password",
         "Login": "Login"
+    },
+    "errors": {
+        "EmailError": "The format of the email is not correct",
+        "Required": "Required",
+        "Min8": "The minimum number of characters is 8",
+        "Max30": "The maximum number of characters is 30",
+        "PasswordFormat": "At least one letter and one number"
     }
 }
