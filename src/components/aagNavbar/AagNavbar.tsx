@@ -39,7 +39,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
           </li>
         </div>
 
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex' }} className="mt-div-small">
           <li className="liNone liLast">
             <NavLink
               to="/login"
