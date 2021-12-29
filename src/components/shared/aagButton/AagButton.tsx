@@ -53,7 +53,7 @@ export const AagButton = ({
               }`
         }
       >
-        <span style={{ marginTop: '3px' }}>{label}</span>
+        <span>{label}</span>
       </button>
     </div>
   );
