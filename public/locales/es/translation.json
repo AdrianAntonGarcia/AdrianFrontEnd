@@ -16,6 +16,7 @@
         "Required": "Requerido",
         "Min8": "El mínimo número de caracteres es 8",
         "Max30": "El máximo número de caracteres es 30",
-        "PasswordFormat": "Debe haber al menos una letra o número"
+        "PasswordFormat": "Debe haber al menos una letra o número",
+        "PasswordMatch": "Las contraseñas deben coincidir"
     }
 }
