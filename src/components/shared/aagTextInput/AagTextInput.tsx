@@ -1,10 +1,15 @@
-import { useField, ErrorMessage } from 'formik';
 import './aagTextInput.scss';
+import { CSSProperties } from 'react';
+import { useField, ErrorMessage } from 'formik';
 interface Props {
   label: string;
   name: string;
   type?: 'text' | 'email' | 'password';
   placeholder?: string;
+  classNameLabel?: string;
+  classNameInput?: string;
+  styleLabel?: CSSProperties;
+  styleInput?: CSSProperties;
   //   ya es opcional por definicion
   [x: string]: any;
 }
@@ -13,10 +18,20 @@ export const AagTextInput = ({ label, ...props }: Props) => {
   const [field] = useField(props);
   return (
     <>
-      <label className="label-input" htmlFor={props.id || props.name}>
+      <label
+        style={props.styleLabel}
+        className={`label-input ${props.classNameLabel}`}
+        htmlFor={props.id || props.name}
+      >
         {label}:
       </label>
-      <input type="text" className="text-input" {...field} {...props} />
+      <input
+        style={props.styleInput}
+        type="text"
+        className={`text-input ${props.classNameInput}`}
+        {...field}
+        {...props}
+      />
       <ErrorMessage name={props.name} component="span" />
     </>
   );
