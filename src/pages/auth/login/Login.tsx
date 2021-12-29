@@ -9,7 +9,7 @@ interface Props {}
 
 export const Login = (props: Props) => {
   const { t } = useTranslation();
-  const { darkMode, changeTheme } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
 
   return (
     <div className="container">

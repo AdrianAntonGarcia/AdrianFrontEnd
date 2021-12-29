@@ -49,7 +49,7 @@
 }
 
 .navItem {
-  color: $text-color-link;
+  color: $text-color;
   font-size: 1.2rem;
   font-weight: 600;
   text-decoration: none;
@@ -60,6 +60,6 @@
 }
 
 .nav-active {
-  color: $text-color-active;
+  color: $secondary-light !important;
   transition: all 0.3s ease-out;
 }

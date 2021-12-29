@@ -38,9 +38,12 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
         <li className="liNone liLast">
           <NavLink
             to="/register"
-            className={({ isActive }) =>
-              isActive ? 'nav-active navItem' : 'navItem'
-            }
+            className={({ isActive }) => {
+              if (isActive && darkMode) return 'navItem dark nav-active ';
+              if (isActive) return 'navItem nav-active';
+              if (darkMode) return 'navItem dark';
+              return 'navItem';
+            }}
           >
             {t('navbar.Register')}
           </NavLink>
@@ -48,9 +51,12 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
         <li className="liNone liLast">
           <NavLink
             to="/login"
-            className={({ isActive }) =>
-              isActive ? 'nav-active navItem' : 'navItem'
-            }
+            className={({ isActive }) => {
+              if (isActive && darkMode) return ' navItem dark nav-active';
+              if (isActive) return 'navItem nav-active';
+              if (darkMode) return 'navItem dark';
+              return 'navItem';
+            }}
           >
             {t('navbar.Login')}
           </NavLink>
@@ -60,9 +66,12 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
         <li className="liNone">
           <NavLink
             to="/home"
-            className={({ isActive }) =>
-              isActive ? 'nav-active navItem' : 'navItem'
-            }
+            className={({ isActive }) => {
+              if (isActive && darkMode) return 'navItem dark nav-active ';
+              if (isActive) return 'navItem nav-active';
+              if (darkMode) return 'navItem dark';
+              return 'navItem';
+            }}
           >
             {t('navbar.Home')}
           </NavLink>

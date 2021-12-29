@@ -9,7 +9,7 @@
   background-color: $secondary-light;
   border-radius: 10px 10px 10px 10px;
   border: 1px solid $secondary;
-  color: $text-color-dark;
+  color: $text-color;
   cursor: pointer;
   display: flex;
   font-size: 1rem;
@@ -19,5 +19,5 @@
 
 .button.dark {
   background-color: $secondary-dark;
-  color: $primary-light;
+  color: $text-color-dark;
 }
