@@ -11,12 +11,12 @@ html {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: $background-color;
+  background-color: $background-color !important;
   color: $text-color;
 }
 
 body.dark {
-  background-color: $background-color-dark;
+  background-color: $background-color-dark !important;
   color: $text-color-dark;
 }
 
