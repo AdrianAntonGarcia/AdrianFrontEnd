@@ -5,5 +5,17 @@
         "LightMode": "Modo Claro",
         "Login": "Ingresar",
         "Register": "Registro"
+    },
+    "login": {
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "Login": "Ingresar"
+    },
+    "errors": {
+        "EmailError": "El formato del email no es correcto",
+        "Required": "Requerido",
+        "Min8": "El mínimo número de caracteres es 8",
+        "Max30": "El máximo número de caracteres es 30",
+        "PasswordFormat": "Debe haber al menos una letra o número"
     }
 }

@@ -1,7 +1,18 @@
+@import '../../../scss/breakingPoints.scss';
+
 .container {
   display: flex;
   flex: 1;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  height: 100%;
+}
+
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+  width: 90%;
+  @include medium {
+    width: 35%;
+  }
 }

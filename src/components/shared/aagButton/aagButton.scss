@@ -9,7 +9,7 @@
   background-color: $secondary-light;
   border-radius: 10px 10px 10px 10px;
   border: 1px solid $secondary;
-  color: $text-color-dark;
+  color: $text-color;
   cursor: pointer;
   display: flex;
   font-size: 1rem;
@@ -19,4 +19,41 @@
 
 .button.dark {
   background-color: $secondary-dark;
+  color: $text-color-dark;
+}
+
+.button-success {
+  background-color: $button-success !important;
+  color: $text-color-dark !important;
+  border: 1px solid $button-success !important;
+}
+
+.button-danger {
+  background-color: $button-danger !important;
+  color: $text-color-dark !important;
+  border: 1px solid $button-danger !important;
+}
+
+.button-warning {
+  background-color: $button-warning !important;
+  color: $text-color !important;
+  border: 1px solid $button-warning !important;
+}
+
+.button-info {
+  background-color: $button-info !important;
+  color: $text-color-dark !important;
+  border: 1px solid $button-info !important;
+}
+
+.button-light {
+  background-color: $button-light !important;
+  color: $text-color !important;
+  border: 1px solid $button-light !important;
+}
+
+.button-dark {
+  background-color: $button-dark !important;
+  color: $text-color-dark !important;
+  border: 1px solid $button-dark !important;
 }

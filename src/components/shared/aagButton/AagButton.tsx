@@ -3,36 +3,54 @@ import './aagButton.scss';
 
 export interface Props {
   label: string;
-  onClick: () => any;
+  onClick?: () => any;
+  type?: 'button' | 'reset' | 'submit';
   classNameContainer?: string;
   classNameButton?: string;
   styleContainer?: CSSProperties;
   styleButton?: CSSProperties;
   theme?: 'dark' | 'light';
+  buttonType?: 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
 }
 
+const buttonTypeStyles = {
+  danger: 'button-danger',
+  success: 'button-success',
+  warning: 'button-warning',
+  info: 'button-info',
+  dark: 'button-dark',
+  light: 'button-light',
+};
+
 export const AagButton = ({
-  onClick,
-  classNameContainer,
   classNameButton,
+  classNameContainer,
   label,
-  styleContainer,
+  onClick = () => {},
   styleButton,
+  styleContainer,
   theme,
+  type = 'button',
+  buttonType,
 }: Props) => {
   const darkMode = theme === 'dark';
   return (
     <div
-      style={styleContainer}
+      style={{ ...styleContainer }}
       className={`buttonContainer ${classNameContainer}`}
     >
       <button
         onClick={() => onClick()}
-        style={styleButton}
+        style={{ ...styleButton }}
+        type={type}
         className={
           darkMode
-            ? `button dark ${classNameButton}`
-            : `button ${classNameButton}`
+            ? `button dark ${classNameButton} ${
+                buttonType && buttonTypeStyles[buttonType]
+              }`
+            : `button ${classNameButton} ${
+                buttonType && buttonTypeStyles[buttonType]
+              }`
         }
       >
         <span style={{ marginTop: '3px' }}>{label}</span>
