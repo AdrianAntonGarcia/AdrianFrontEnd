@@ -13,6 +13,15 @@ export interface Props {
   buttonType?: 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
 }
 
+const buttonTypeStyles = {
+  danger: 'button-danger',
+  success: 'button-success',
+  warning: 'button-warning',
+  info: 'button-info',
+  dark: 'button-dark',
+  light: 'button-light',
+};
+
 export const AagButton = ({
   classNameButton,
   classNameContainer,
@@ -25,29 +34,6 @@ export const AagButton = ({
   buttonType,
 }: Props) => {
   const darkMode = theme === 'dark';
-  let buttonTypeClass = '';
-  switch (buttonType) {
-    case 'danger':
-      buttonTypeClass = 'button-danger';
-      break;
-    case 'success':
-      buttonTypeClass = 'button-success';
-      break;
-    case 'dark':
-      buttonTypeClass = 'button-dark';
-      break;
-    case 'info':
-      buttonTypeClass = 'button-info';
-      break;
-    case 'warning':
-      buttonTypeClass = 'button-warning';
-      break;
-    case 'light':
-      buttonTypeClass = 'button-light';
-      break;
-    default:
-      break;
-  }
   return (
     <div
       style={{ ...styleContainer }}
@@ -59,8 +45,12 @@ export const AagButton = ({
         type={type}
         className={
           darkMode
-            ? `button dark ${classNameButton} ${buttonTypeClass}`
-            : `button ${classNameButton} ${buttonTypeClass}`
+            ? `button dark ${classNameButton} ${
+                buttonType && buttonTypeStyles[buttonType]
+              }`
+            : `button ${classNameButton} ${
+                buttonType && buttonTypeStyles[buttonType]
+              }`
         }
       >
         <span style={{ marginTop: '3px' }}>{label}</span>
