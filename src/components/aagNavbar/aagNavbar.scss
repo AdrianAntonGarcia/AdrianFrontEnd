@@ -2,24 +2,35 @@
 @import '../../scss/breakingPoints.scss';
 
 .navBar {
-  align-items: center;
-  background-color: $primary-light;
+  background-color: $primary;
   display: flex;
-  flex-direction: row-reverse;
   flex-wrap: wrap;
+  justify-content: space-between;
   flex: 1;
   margin: 0;
   overflow-x: visible;
+  box-shadow: 2px 2px 2px 1px $primary-dark;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.navBar.dark {
+  background-color: $primary-dark;
 }
 
 .ulFirst {
+  align-items: center;
   display: flex;
+  flex-direction: row;
+  justify-content: safe;
   flex-wrap: wrap;
   flex: 1;
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  margin-top: 1rem !important;
   @include small {
     flex-direction: row;
+    justify-content: flex-start;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     flex: 1;
   }
 }
@@ -27,27 +38,37 @@
 .ulLast {
   align-items: center;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  flex: 4;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  flex: 1;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  margin-top: 1rem !important;
   @include small {
-    flex: 2;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    flex: 1;
   }
 }
 
 .liNone {
   list-style: none;
+  margin-top: 5px;
+  @include small {
+    margin-top: 0px;
+  }
 }
 
-.liLast {
+.liMarginLeft {
   margin-left: 1rem;
+  @include medium {
+    margin-left: 2.5rem;
+  }
 }
 
-.navBar.dark {
-  background-color: $primary-dark;
+.liMarginRight {
+  margin-right: 1rem;
 }
 
 .navItem {
@@ -58,17 +79,10 @@
 }
 
 .navItem.dark {
-  color: $text-color-dark;
+  color: $text-color;
 }
 
 .nav-active {
-  color: $secondary-light !important;
+  color: $text-color-dark !important;
   transition: all 0.3s ease-out;
-}
-
-.mt-div-small {
-  margin-top: 3%;
-  @include small {
-    margin-top: 0px;
-  }
 }

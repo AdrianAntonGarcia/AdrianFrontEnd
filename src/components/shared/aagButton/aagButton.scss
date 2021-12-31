@@ -6,20 +6,21 @@
 }
 
 .button {
-  background-color: $secondary-light;
-  border-radius: 10px 10px 10px 10px;
-  border: 1px solid $secondary;
+  background-color: $primary-light;
+  border-radius: 15px;
+  border: 2px solid $primary-light;
   color: $text-color;
   cursor: pointer;
   display: flex;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  padding: 0.6rem;
+  padding: 0.7rem;
 }
 
 .button.dark {
-  background-color: $secondary-dark;
-  color: $text-color-dark;
+  background-color: $primary;
+  border: 2px solid $primary;
+  color: $text-color;
 }
 
 .button-success {
