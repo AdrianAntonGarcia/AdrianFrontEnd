@@ -16,60 +16,8 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
   };
   return (
     <nav className={darkMode ? 'navBar dark' : 'navBar'}>
-      <ul className="ulLast">
-        <div style={{ display: 'flex' }}>
-          <li className="liNone liLast">
-            <AagButton
-              onClick={!!changeTheme ? changeTheme : () => {}}
-              label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
-              theme={darkMode ? 'dark' : 'light'}
-            />
-          </li>
-          <li className="liNone liLast">
-            <AagButton
-              buttonType="info"
-              onClick={
-                i18n.language === 'es'
-                  ? () => changeLanguage('en')
-                  : () => changeLanguage('es')
-              }
-              label={i18n.language === 'es' ? 'en' : 'es'}
-              theme={darkMode ? 'dark' : 'light'}
-            />
-          </li>
-        </div>
-
-        <div style={{ display: 'flex' }} className="mt-div-small">
-          <li className="liNone liLast">
-            <NavLink
-              to="/login"
-              className={({ isActive }) => {
-                if (isActive && darkMode) return ' navItem dark nav-active';
-                if (isActive) return 'navItem nav-active';
-                if (darkMode) return 'navItem dark';
-                return 'navItem';
-              }}
-            >
-              {t('navbar.Login')}
-            </NavLink>
-          </li>
-          <li className="liNone liLast">
-            <NavLink
-              to="/register"
-              className={({ isActive }) => {
-                if (isActive && darkMode) return 'navItem dark nav-active ';
-                if (isActive) return 'navItem nav-active';
-                if (darkMode) return 'navItem dark';
-                return 'navItem';
-              }}
-            >
-              {t('navbar.Register')}
-            </NavLink>
-          </li>
-        </div>
-      </ul>
       <ul className="ulFirst">
-        <li className="liNone">
+        <li className="liNone liMarginLeft">
           <NavLink
             to="/home"
             className={({ isActive }) => {
@@ -81,6 +29,53 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
           >
             {t('navbar.Home')}
           </NavLink>
+        </li>
+        <li className="liNone liMarginLeft">
+          <NavLink
+            to="/login"
+            className={({ isActive }) => {
+              if (isActive && darkMode) return ' navItem dark nav-active';
+              if (isActive) return 'navItem nav-active';
+              if (darkMode) return 'navItem dark';
+              return 'navItem';
+            }}
+          >
+            {t('navbar.Login')}
+          </NavLink>
+        </li>
+        <li className="liNone liMarginLeft">
+          <NavLink
+            to="/register"
+            className={({ isActive }) => {
+              if (isActive && darkMode) return 'navItem dark nav-active ';
+              if (isActive) return 'navItem nav-active';
+              if (darkMode) return 'navItem dark';
+              return 'navItem';
+            }}
+          >
+            {t('navbar.Register')}
+          </NavLink>
+        </li>
+      </ul>
+      <ul className="ulLast">
+        <li className="liNone liMarginLeft">
+          <AagButton
+            onClick={!!changeTheme ? changeTheme : () => {}}
+            label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
+            theme={darkMode ? 'dark' : 'light'}
+          />
+        </li>
+        <li className="liNone liMarginLeft">
+          <AagButton
+            buttonType="info"
+            onClick={
+              i18n.language === 'es'
+                ? () => changeLanguage('en')
+                : () => changeLanguage('es')
+            }
+            label={i18n.language === 'es' ? 'en' : 'es'}
+            theme={darkMode ? 'dark' : 'light'}
+          />
         </li>
       </ul>
     </nav>
