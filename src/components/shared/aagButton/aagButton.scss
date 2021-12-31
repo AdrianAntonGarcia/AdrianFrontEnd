@@ -6,9 +6,9 @@
 }
 
 .button {
-  background-color: $secondary-light;
+  background-color: $primary-light;
   border-radius: 10px 10px 10px 10px;
-  border: 1px solid $secondary;
+  border: 1px solid #fff;
   color: $text-color;
   cursor: pointer;
   display: flex;
@@ -18,7 +18,7 @@
 }
 
 .button.dark {
-  background-color: $secondary-dark;
+  background-color: $primary-dark;
   color: $text-color-dark;
 }
 
