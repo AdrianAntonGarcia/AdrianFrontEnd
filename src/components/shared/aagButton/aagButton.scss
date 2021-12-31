@@ -9,6 +9,7 @@
   background-color: $primary-light;
   border-radius: 15px;
   border: 2px solid $primary-light;
+  box-shadow: 2px 2px 2px 1px $primary-light;
   color: $text-color;
   cursor: pointer;
   display: flex;
@@ -20,6 +21,7 @@
 .button.dark {
   background-color: $primary;
   border: 2px solid $primary;
+  box-shadow: 2px 2px 2px 1px $primary;
   color: $text-color;
 }
 
@@ -27,34 +29,40 @@
   background-color: $button-success !important;
   color: $text-color-dark !important;
   border: 1px solid $button-success !important;
+  box-shadow: 2px 2px 2px 1px $button-success !important;
 }
 
 .button-danger {
   background-color: $button-danger !important;
   color: $text-color-dark !important;
   border: 1px solid $button-danger !important;
+  box-shadow: 2px 2px 2px 1px $button-danger !important;
 }
 
 .button-warning {
   background-color: $button-warning !important;
   color: $text-color !important;
   border: 1px solid $button-warning !important;
+  box-shadow: 2px 2px 2px 1px $button-warning !important;
 }
 
 .button-info {
   background-color: $button-info !important;
   color: $text-color-dark !important;
   border: 1px solid $button-info !important;
+  box-shadow: 2px 2px 2px 1px $button-info !important;
 }
 
 .button-light {
   background-color: $button-light !important;
   color: $text-color !important;
   border: 1px solid $button-light !important;
+  box-shadow: 2px 2px 2px 1px $button-light !important;
 }
 
 .button-dark {
   background-color: $button-dark !important;
   color: $text-color-dark !important;
   border: 1px solid $button-dark !important;
+  box-shadow: 2px 2px 2px 1px $button-dark !important;
 }
