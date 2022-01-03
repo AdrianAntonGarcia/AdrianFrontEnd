@@ -2,7 +2,10 @@ import './aagModal.scss';
 import { AagButton } from '..';
 import { useState } from 'react';
 
-export const AagModal = () => {
+interface Props {
+  onSuccess?: () => any;
+}
+export const AagModal = ({ onSuccess }: Props) => {
   const [showModal, setShowModal] = useState(true);
 
   const cancelModal = () => {
@@ -16,7 +19,14 @@ export const AagModal = () => {
           <div className="modal-content-container">
             <span>Texto del modal</span>
             <div className="modal-buttons">
-              <AagButton label="Confirmar" buttonType="success" />
+              <AagButton
+                label="Confirmar"
+                buttonType="success"
+                onClick={() => {
+                  !!onSuccess && onSuccess();
+                  cancelModal();
+                }}
+              />
               <AagButton
                 label="Cancelar"
                 buttonType="danger"
