@@ -1,0 +1,37 @@
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.modal-aag {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+}
+
+.modal-content-aag {
+  align-self: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 1px white;
+  padding: 40px;
+}
+
+.modal-content-container {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
