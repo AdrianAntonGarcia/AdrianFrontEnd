@@ -3,18 +3,21 @@ import { AagButton, AagTextInput } from '../../../components';
 import { Form, Formik } from 'formik';
 import { ThemeContext } from '../../../context';
 import { useContext } from 'react';
+import { UserLogin } from '../../../hooks';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
 export const Login = () => {
   const { t } = useTranslation();
   const { darkMode } = useContext(ThemeContext);
+  const { login } = UserLogin();
   return (
     <div className="container">
       <Formik
         initialValues={{ email: '', password: '' }}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={({ email, password }) => {
+          console.log(email, password);
+          login(email, password);
         }}
         validationSchema={Yup.object({
           email: Yup.string()
