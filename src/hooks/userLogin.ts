@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { LoginResponse } from '../interfaces';
 
-export const useLogin = () => {
+export const UserLogin = () => {
   const [loginResponse, setLoginResponse] = useState<LoginResponse>(
     {} as LoginResponse
   );
