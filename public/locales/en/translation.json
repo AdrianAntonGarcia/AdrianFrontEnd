@@ -21,7 +21,7 @@
         "Required": "Required",
         "Min8": "The minimum number of characters is 8",
         "Max30": "The maximum number of characters is 30",
-        "PasswordFormat": "At least one letter and one number",
+        "PasswordFormat": "It does not comply with the correct format, it must contain uppercase, lowercase, number and between 8 and 30 characters.",
         "PasswordMatch": "Passwords must match"
     },
     "home": {
