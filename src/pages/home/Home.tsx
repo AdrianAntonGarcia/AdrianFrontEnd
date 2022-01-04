@@ -9,7 +9,7 @@ interface Props {}
 export const Home = (props: Props) => {
   const { darkMode } = useContext(ThemeContext);
   const [t] = useTranslation();
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const onSuccess = () => {
     setShowModal(false);
   };

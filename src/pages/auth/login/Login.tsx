@@ -1,6 +1,7 @@
 import './login.scss';
 import { AagButton, AagTextInput } from '../../../components';
 import { Form, Formik } from 'formik';
+import { passRegExp } from '../../../shared';
 import { ThemeContext } from '../../../context';
 import { useContext } from 'react';
 import { UserLogin } from '../../../hooks';
@@ -24,16 +25,23 @@ export const Login = () => {
             .email(t('errors.EmailError'))
             .required(t('errors.Required')),
           password: Yup.string()
-            .min(8, t('errors.Min8'))
-            .max(30, t('errors.Max30'))
+            .matches(passRegExp, t('errors.PasswordFormat'))
             .required(t('errors.Required')),
         })}
       >
         <Form className="formLogin">
-          <AagTextInput label={t('login.Email')} name="email" type="email" />
           <AagTextInput
+            showLabel={true}
+            label={t('login.Email')}
+            name="email"
+            placeholder={t('login.Email')}
+            type="email"
+          />
+          <AagTextInput
+            showLabel={true}
             label={t('login.Password')}
             name="password"
+            placeholder={t('login.Password')}
             type="password"
           />
           <div style={{ display: 'flex', flex: '1', justifyContent: 'center' }}>

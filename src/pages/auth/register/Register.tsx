@@ -1,16 +1,18 @@
 import './register.scss';
+import { AagButton, AagTextInput } from '../../../components';
+import { Form, Formik } from 'formik';
+import { passRegExp } from '../../../shared';
 import { ThemeContext } from '../../../context/Theme.context';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { AagButton, AagTextInput } from '../../../components';
 
 interface Props {}
 
 export const Register = (props: Props) => {
   const { t } = useTranslation();
   const { darkMode } = useContext(ThemeContext);
+
   return (
     <div className="container">
       <Formik
@@ -27,12 +29,9 @@ export const Register = (props: Props) => {
             .email(t('errors.EmailError'))
             .required(t('errors.Required')),
           password1: Yup.string()
-            .min(8, t('errors.Min8'))
-            .max(30, t('errors.Max30'))
+            .matches(passRegExp, t('errors.PasswordFormat'))
             .required(t('errors.Required')),
           password2: Yup.string()
-            .min(8, t('errors.Min8'))
-            .max(30, t('errors.Max30'))
             .required(t('errors.Required'))
             .oneOf([Yup.ref('password1')], t('errors.PasswordMatch')),
         })}
