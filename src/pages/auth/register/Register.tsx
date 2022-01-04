@@ -37,15 +37,27 @@ export const Register = (props: Props) => {
         })}
       >
         <Form className="formRegister">
-          <AagTextInput label={t('register.Name')} name="name" type="text" />
-          <AagTextInput label={t('login.Email')} name="email" type="email" />
+          <AagTextInput
+            label={t('register.Name')}
+            placeholder={t('register.Name')}
+            name="name"
+            type="text"
+          />
+          <AagTextInput
+            placeholder={t('login.Email')}
+            label={t('login.Email')}
+            name="email"
+            type="email"
+          />
           <AagTextInput
             label={t('login.Password')}
+            placeholder={t('login.Password')}
             name="password1"
             type="password"
           />
           <AagTextInput
             label={t('register.PasswordConfirm')}
+            placeholder={t('register.PasswordConfirm')}
             name="password2"
             type="password"
           />
