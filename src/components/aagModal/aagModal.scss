@@ -1,0 +1,66 @@
+@import '../../scss/breakingPoints.scss';
+@import '../../scss/colors.scss';
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.modal-aag {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+}
+
+.modal-content-aag {
+  align-self: center;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 1px $background-color;
+  padding: 40px;
+}
+
+.modal-content-aag.dark {
+  background-color: $background-color-dark;
+  box-shadow: 2px 2px 2px 1px $background-color-dark;
+}
+
+.modal-content-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row;
+  @include small {
+    min-width: 300px;
+  }
+  justify-content: space-between;
+  flex: 1;
+}
+
+.modal-buttons.only {
+  justify-content: center;
+}
+
+.modal-text {
+  color: $text-color;
+  margin-bottom: 1.5rem;
+  @include small {
+    font-size: larger;
+    min-width: 300px;
+    max-width: 500px;
+  }
+}
+
+.modal-text.dark {
+  color: $text-color-dark;
+}
