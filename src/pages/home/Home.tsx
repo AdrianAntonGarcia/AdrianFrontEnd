@@ -21,6 +21,7 @@ export const Home = (props: Props) => {
         styleContainer={{ padding: '10px' }}
       />
       <AagModal
+        darkTheme={darkMode}
         onCancel={() => setShowModal(false)}
         onSuccess={onSuccess}
         show={showModal}

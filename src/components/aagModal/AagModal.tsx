@@ -4,6 +4,7 @@ import { AagButton } from '..';
 interface Props {
   onCancel?: () => any;
   onSuccess?: () => any;
+  darkTheme?: boolean;
   show: boolean;
   showCancelButton?: boolean;
   showSuccessButton?: boolean;
@@ -12,6 +13,7 @@ interface Props {
   textSuccess: string;
 }
 export const AagModal = ({
+  darkTheme = false,
   onCancel,
   onSuccess,
   show = true,
@@ -24,6 +26,7 @@ export const AagModal = ({
   const successButton = (
     <AagButton
       label={textSuccess}
+      theme={darkTheme ? 'dark' : 'light'}
       onClick={() => {
         !!onSuccess && onSuccess();
       }}
@@ -42,9 +45,13 @@ export const AagModal = ({
   return (
     <div className="modal-container">
       <div className="modal-aag">
-        <div className="modal-content-aag">
+        <div
+          className={darkTheme ? 'modal-content-aag dark' : 'modal-content-aag'}
+        >
           <div className="modal-content-container">
-            <span className="modal-text ">{textModal}</span>
+            <span className={darkTheme ? 'modal-text dark' : 'modal-text'}>
+              {textModal}
+            </span>
             {showCancelButton && showSuccessButton && (
               <div className="modal-buttons">
                 {showSuccessButton && successButton}
