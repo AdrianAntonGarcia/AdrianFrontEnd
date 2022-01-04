@@ -26,7 +26,6 @@
 }
 
 .modal-content-container {
-  color: black;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -42,7 +41,12 @@
   flex: 1;
 }
 
+.modal-buttons.only {
+  justify-content: center;
+}
+
 .modal-text {
+  color: black;
   margin-bottom: 1.5rem;
   @include small {
     font-size: larger;
