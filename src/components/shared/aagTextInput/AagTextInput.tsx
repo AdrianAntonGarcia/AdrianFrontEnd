@@ -33,7 +33,13 @@ export const AagTextInput = ({ label, showLabel = true, ...props }: Props) => {
         {...field}
         {...props}
       />
-      <ErrorMessage name={props.name} component="span" className="text-error" />
+      <div className="error-message">
+        <ErrorMessage
+          name={props.name}
+          component="span"
+          className="text-error"
+        />
+      </div>
     </>
   );
 };
