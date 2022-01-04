@@ -17,7 +17,13 @@ export const AagModal = ({ onSuccess }: Props) => {
       <div className="modal-aag">
         <div className="modal-content-aag">
           <div className="modal-content-container">
-            <span>Texto del modal</span>
+            <span className="modal-text ">
+              Laboris fugiat incididunt elit culpa cupidatat. Anim proident sunt
+              fugiat consectetur ex. Non quis deserunt in ut ullamco occaecat
+              aliqua pariatur dolore consectetur elit cillum. Veniam laborum
+              laboris reprehenderit eu. Nostrud sunt eu velit commodo
+              reprehenderit qui irure eu ea amet sint magna veniam.
+            </span>
             <div className="modal-buttons">
               <AagButton
                 label="Confirmar"
