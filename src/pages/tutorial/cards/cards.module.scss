@@ -1,0 +1,54 @@
+@import '../../../scss/colors.scss';
+
+.cardBox {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.cardBox .card {
+  background: $primary;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  position: relative;
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: bold;
+  font-size: 2.5em;
+  color: $text-color-dark;
+}
+
+.cardBox .card .cardName {
+  color: $text-color-dark;
+  font-size: 1.1em;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+  font-size: 3.5em;
+  color: $text-color-dark;
+}
+.cardBox .card:hover {
+  background: $primary-light;
+}
+
+.cardBox .card:hover .numbers {
+  color: $text-color;
+}
+
+.cardBox .card:hover .cardName {
+  color: $text-color;
+}
+
+.cardBox .card:hover .iconBx {
+  color: $text-color;
+}

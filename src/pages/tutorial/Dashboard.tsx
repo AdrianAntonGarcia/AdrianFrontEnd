@@ -25,6 +25,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import cx from 'classnames';
+import { Cards } from './cards/Cards';
 
 export const Dashboard = () => {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -108,7 +109,7 @@ export const Dashboard = () => {
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
-                to="/"
+                to="/cards"
                 className={({ isActive }) =>
                   isActive ? dashboardStyles.hovered : ''
                 }
@@ -214,6 +215,7 @@ export const Dashboard = () => {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
+          <Route path="/cards" element={<Cards />}></Route>
           <Route path="/*" element={<Navigate to="/home" replace />}></Route>
         </Routes>
       </div>

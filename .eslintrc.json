@@ -23,6 +23,6 @@
     "react/prop-types": 0
   },
   "settings": {
-    "react": { "version": "detect" }
+    "react": { "pragma": "React", "version": "detect" }
   }
 }
