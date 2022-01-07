@@ -1,6 +1,15 @@
 import './Dashboard.scss';
-import { FaBeer } from 'react-icons/fa';
-import { IoLogoApple } from 'react-icons/io5';
+import {
+  IoLogoApple,
+  IoHomeOutline,
+  IoPersonOutline,
+  IoChatbubblesOutline,
+  IoHelpOutline,
+  IoSettingsOutline,
+  IoLockClosedOutline,
+  IoLogOutOutline,
+} from 'react-icons/io5';
+
 export const Dashboard = () => {
   return (
     <div className="container-dash">
@@ -16,43 +25,57 @@ export const Dashboard = () => {
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoHomeOutline />
+              </span>
               <span className="title">Dashboard</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoPersonOutline />
+              </span>
               <span className="title">Customers</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoChatbubblesOutline />
+              </span>
               <span className="title">Message</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoHelpOutline />
+              </span>
               <span className="title">Help</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoSettingsOutline />
+              </span>
               <span className="title">Settings</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoLockClosedOutline />
+              </span>
               <span className="title">Password</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoLogOutOutline />
+              </span>
               <span className="title">Sign Out</span>
             </a>
           </li>
