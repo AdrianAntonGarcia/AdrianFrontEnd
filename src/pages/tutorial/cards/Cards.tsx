@@ -44,6 +44,24 @@ export const Cards = () => {
           <IoCashOutline />
         </div>
       </div>
+      <div className={cardsStyles.card}>
+        <div>
+          <div className={cardsStyles.numbers}>80</div>
+          <div className={cardsStyles.cardName}>Sales</div>
+        </div>
+        <div className={cardsStyles.iconBx}>
+          <IoCartOutline />
+        </div>
+      </div>
+      <div className={cardsStyles.card}>
+        <div>
+          <div className={cardsStyles.numbers}>80</div>
+          <div className={cardsStyles.cardName}>Sales</div>
+        </div>
+        <div className={cardsStyles.iconBx}>
+          <IoCartOutline />
+        </div>
+      </div>
     </div>
   );
 };
