@@ -6,7 +6,11 @@ import './scss/globalStyles.scss';
 export default function App() {
   const tutorial = true;
   if (tutorial) {
-    return <Dashboard />;
+    return (
+      <Suspense fallback="loading">
+        <Dashboard />
+      </Suspense>
+    );
   } else {
     return (
       <Suspense fallback="loading">

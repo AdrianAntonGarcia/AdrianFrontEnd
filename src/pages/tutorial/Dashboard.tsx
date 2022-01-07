@@ -10,7 +10,14 @@ import {
   IoLockClosedOutline,
   IoLogOutOutline,
 } from 'react-icons/io5';
-import { NavLink, BrowserRouter } from 'react-router-dom';
+import {
+  NavLink,
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import { Home, Login, Register } from '..';
 
 export const Dashboard = () => {
   return (
@@ -19,7 +26,12 @@ export const Dashboard = () => {
         <div className={dashboardStyles.navigation}>
           <ul>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoLogoApple />
                 </span>
@@ -27,7 +39,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoHomeOutline />
                 </span>
@@ -35,7 +52,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoPersonOutline />
                 </span>
@@ -43,7 +65,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoChatbubblesOutline />
                 </span>
@@ -51,7 +78,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoHelpOutline />
                 </span>
@@ -59,7 +91,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/home"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoSettingsOutline />
                 </span>
@@ -67,7 +104,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoLockClosedOutline />
                 </span>
@@ -75,7 +117,12 @@ export const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/home">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? dashboardStyles.hovered : ''
+                }
+              >
                 <span className={dashboardStyles.icon}>
                   <IoLogOutOutline />
                 </span>
@@ -85,6 +132,12 @@ export const Dashboard = () => {
           </ul>
         </div>
       </div>
+      <Routes>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/*" element={<Navigate to="/home" replace />}></Route>
+      </Routes>
     </BrowserRouter>
   );
 };
