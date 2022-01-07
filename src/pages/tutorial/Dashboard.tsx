@@ -1,5 +1,6 @@
 import './Dashboard.scss';
-
+import { FaBeer } from 'react-icons/fa';
+import { IoLogoApple } from 'react-icons/io5';
 export const Dashboard = () => {
   return (
     <div className="container-dash">
@@ -7,7 +8,9 @@ export const Dashboard = () => {
         <ul>
           <li>
             <a href="#">
-              <span className="icon"></span>
+              <span className="icon">
+                <IoLogoApple />
+              </span>
               <span className="title">Brand Name</span>
             </a>
           </li>
