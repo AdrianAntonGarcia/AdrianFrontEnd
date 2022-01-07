@@ -10,78 +10,81 @@ import {
   IoLockClosedOutline,
   IoLogOutOutline,
 } from 'react-icons/io5';
+import { NavLink, BrowserRouter } from 'react-router-dom';
 
 export const Dashboard = () => {
   return (
-    <div className={dashboardStyles.container}>
-      <div className={dashboardStyles.navigation}>
-        <ul>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoLogoApple />
-              </span>
-              <span className={dashboardStyles.title}>Brand Name</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoHomeOutline />
-              </span>
-              <span className={dashboardStyles.title}>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoPersonOutline />
-              </span>
-              <span className={dashboardStyles.title}>Customers</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoChatbubblesOutline />
-              </span>
-              <span className={dashboardStyles.title}>Message</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoHelpOutline />
-              </span>
-              <span className={dashboardStyles.title}>Help</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoSettingsOutline />
-              </span>
-              <span className={dashboardStyles.title}>Settings</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoLockClosedOutline />
-              </span>
-              <span className={dashboardStyles.title}>Password</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span className={dashboardStyles.icon}>
-                <IoLogOutOutline />
-              </span>
-              <span className={dashboardStyles.title}>Sign Out</span>
-            </a>
-          </li>
-        </ul>
+    <BrowserRouter>
+      <div className={dashboardStyles.dashboardContainer}>
+        <div className={dashboardStyles.navigation}>
+          <ul>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoLogoApple />
+                </span>
+                <span className={dashboardStyles.title}>Brand Name</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoHomeOutline />
+                </span>
+                <span className={dashboardStyles.title}>Dashboard</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoPersonOutline />
+                </span>
+                <span className={dashboardStyles.title}>Customers</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoChatbubblesOutline />
+                </span>
+                <span className={dashboardStyles.title}>Message</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoHelpOutline />
+                </span>
+                <span className={dashboardStyles.title}>Help</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoSettingsOutline />
+                </span>
+                <span className={dashboardStyles.title}>Settings</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoLockClosedOutline />
+                </span>
+                <span className={dashboardStyles.title}>Password</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/home">
+                <span className={dashboardStyles.icon}>
+                  <IoLogOutOutline />
+                </span>
+                <span className={dashboardStyles.title}>Sign Out</span>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
