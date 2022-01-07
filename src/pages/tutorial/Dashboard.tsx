@@ -1,4 +1,4 @@
-import './dashboard.scss';
+import dashboardStyles from './dashboard.module.scss';
 import {
   IoLogoApple,
   IoHomeOutline,
@@ -12,71 +12,71 @@ import {
 
 export const Dashboard = () => {
   return (
-    <div className="container">
-      <div className="navigation">
+    <div className={dashboardStyles.container}>
+      <div className={dashboardStyles.navigation}>
         <ul>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoLogoApple />
               </span>
-              <span className="title">Brand Name</span>
+              <span className={dashboardStyles.title}>Brand Name</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoHomeOutline />
               </span>
-              <span className="title">Dashboard</span>
+              <span className={dashboardStyles.title}>Dashboard</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoPersonOutline />
               </span>
-              <span className="title">Customers</span>
+              <span className={dashboardStyles.title}>Customers</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoChatbubblesOutline />
               </span>
-              <span className="title">Message</span>
+              <span className={dashboardStyles.title}>Message</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoHelpOutline />
               </span>
-              <span className="title">Help</span>
+              <span className={dashboardStyles.title}>Help</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoSettingsOutline />
               </span>
-              <span className="title">Settings</span>
+              <span className={dashboardStyles.title}>Settings</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoLockClosedOutline />
               </span>
-              <span className="title">Password</span>
+              <span className={dashboardStyles.title}>Password</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="icon">
+              <span className={dashboardStyles.icon}>
                 <IoLogOutOutline />
               </span>
-              <span className="title">Sign Out</span>
+              <span className={dashboardStyles.title}>Sign Out</span>
             </a>
           </li>
         </ul>
