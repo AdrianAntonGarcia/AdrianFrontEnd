@@ -3,8 +3,8 @@ import cx from 'classnames';
 import modalStyles from './aagModal.module.scss';
 
 interface Props {
-  onCancel?: () => any;
-  onSuccess?: () => any;
+  onCancel?: () => void;
+  onSuccess?: () => void;
   darkTheme?: boolean;
   show: boolean;
   showCancelButton?: boolean;

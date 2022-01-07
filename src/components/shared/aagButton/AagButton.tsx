@@ -3,7 +3,7 @@ import buttonStyles from './aagButton.module.scss';
 import cx from 'classnames';
 export interface Props {
   label: string;
-  onClick?: () => any;
+  onClick?: () => void;
   type?: 'button' | 'reset' | 'submit';
   classNameContainer?: string;
   classNameButton?: string;
@@ -26,7 +26,7 @@ export const AagButton = ({
   classNameButton,
   classNameContainer,
   label,
-  onClick = () => {},
+  onClick = () => ({}),
   styleButton,
   styleContainer,
   theme,

@@ -28,7 +28,6 @@
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
-    "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.0",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
@@ -69,6 +68,10 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "eslint-plugin-react": "^7.28.0",
     "formik": "^2.2.9",
     "i18next": "21.6.3",
     "i18next-browser-languagedetector": "6.1.2",
@@ -81,7 +84,8 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "eslint": "eslint \"**/*.tsx\" --ignore-pattern node_modules/"
   },
   "eslintConfig": {
     "extends": [

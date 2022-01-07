@@ -6,9 +6,7 @@ import { AagNavbar } from '../components';
 import { ThemeContext } from '../context';
 import { useContext } from 'react';
 
-interface Props {}
-
-export const Navigation = (props: Props) => {
+export const Navigation = () => {
   const { darkMode, changeTheme } = useContext(ThemeContext);
   return (
     <BrowserRouter>

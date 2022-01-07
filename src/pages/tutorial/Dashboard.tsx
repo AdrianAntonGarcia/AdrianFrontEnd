@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import dashboardStyles from './dashboard.module.scss';
 import {
   IoLogoApple,
@@ -149,7 +148,7 @@ export const Dashboard = () => {
               )}
             >
               <AagButton
-                onClick={!!changeTheme ? changeTheme : () => {}}
+                onClick={changeTheme}
                 label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
                 theme={darkMode ? 'dark' : 'light'}
               />
@@ -161,7 +160,7 @@ export const Dashboard = () => {
               )}
             >
               <AagButton
-                onClick={!!changeTheme ? changeTheme : () => {}}
+                onClick={changeTheme}
                 label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
                 theme={darkMode ? 'dark' : 'light'}
               />
@@ -169,12 +168,16 @@ export const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <Routes>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/*" element={<Navigate to="/home" replace />}></Route>
-      </Routes>
+      <div className={dashboardStyles.main}>
+        <div className="">
+          <Routes>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/*" element={<Navigate to="/home" replace />}></Route>
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 };
