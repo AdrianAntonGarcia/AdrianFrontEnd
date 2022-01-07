@@ -14,6 +14,19 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
   const changeLanguage = (lng: string | undefined) => {
     i18n.changeLanguage(lng);
   };
+  /**
+   * Devuelve las clases correspondientes dependiendo si el enlace está activo y estña en modo oscuro
+   * @param param0 indica si el link está activo
+   * @returns
+   */
+  const isActiveNavlink = ({ isActive }: { isActive: boolean }) => {
+    if (isActive && darkMode)
+      return `${navbarStyles.navItem} ${navbarStyles['nav-active']} ${navbarStyles.dark}`;
+    if (isActive)
+      return `${navbarStyles.navItem} ${navbarStyles['nav-active']}`;
+    if (darkMode) return `${navbarStyles.navItem} ${navbarStyles.dark}`;
+    return navbarStyles.navItem;
+  };
   return (
     <nav
       className={
@@ -24,50 +37,17 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
     >
       <ul className={navbarStyles.ulFirst}>
         <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
-          <NavLink
-            to="/home"
-            className={({ isActive }) => {
-              if (isActive && darkMode)
-                return `${navbarStyles.navItem} ${navbarStyles['nav-active']} ${navbarStyles.dark}`;
-              if (isActive)
-                return `${navbarStyles.navItem} ${navbarStyles['nav-active']}`;
-              if (darkMode)
-                return `${navbarStyles.navItem} ${navbarStyles.dark}`;
-              return 'navItem';
-            }}
-          >
+          <NavLink to="/home" className={isActiveNavlink}>
             {t('navbar.Home')}
           </NavLink>
         </li>
         <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
-          <NavLink
-            to="/login"
-            className={({ isActive }) => {
-              if (isActive && darkMode)
-                return `${navbarStyles.navItem} ${navbarStyles['nav-active']} ${navbarStyles.dark}`;
-              if (isActive)
-                return `${navbarStyles.navItem} ${navbarStyles['nav-active']}`;
-              if (darkMode)
-                return `${navbarStyles.navItem} ${navbarStyles.dark}`;
-              return 'navItem';
-            }}
-          >
+          <NavLink to="/login" className={isActiveNavlink}>
             {t('navbar.Login')}
           </NavLink>
         </li>
         <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
-          <NavLink
-            to="/register"
-            className={({ isActive }) => {
-              if (isActive && darkMode)
-                return `${navbarStyles.navItem} ${navbarStyles['nav-active']} ${navbarStyles.dark}`;
-              if (isActive)
-                return `${navbarStyles.navItem} ${navbarStyles['nav-active']}`;
-              if (darkMode)
-                return `${navbarStyles.navItem} ${navbarStyles.dark}`;
-              return 'navItem';
-            }}
-          >
+          <NavLink to="/register" className={isActiveNavlink}>
             {t('navbar.Register')}
           </NavLink>
         </li>

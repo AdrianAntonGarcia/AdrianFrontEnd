@@ -1,4 +1,4 @@
-import './aagModal.scss';
+import modalStyles from './aagModal.module.scss';
 import { AagButton } from '..';
 
 interface Props {
@@ -43,26 +43,44 @@ export const AagModal = ({
   );
   if (!show) return null;
   return (
-    <div className="modal-container">
-      <div className="modal-aag">
+    <div className={modalStyles['modal-container']}>
+      <div className={modalStyles['modal-aag']}>
         <div
-          className={darkTheme ? 'modal-content-aag dark' : 'modal-content-aag'}
+          className={
+            darkTheme
+              ? `${modalStyles['modal-content-aag']} ${modalStyles.dark}`
+              : `${modalStyles['modal-content-aag']} `
+          }
         >
-          <div className="modal-content-container">
-            <span className={darkTheme ? 'modal-text dark' : 'modal-text'}>
+          <div className={modalStyles['modal-content-container']}>
+            <span
+              className={
+                darkTheme
+                  ? `${modalStyles['modal-text']} ${modalStyles.dark}`
+                  : modalStyles['modal-text']
+              }
+            >
               {textModal}
             </span>
             {showCancelButton && showSuccessButton && (
-              <div className="modal-buttons">
+              <div className={modalStyles['modal-buttons']}>
                 {showSuccessButton && successButton}
                 {showCancelButton && cancelButton}
               </div>
             )}
             {showCancelButton && !showSuccessButton && (
-              <div className="modal-buttons only">{cancelButton}</div>
+              <div
+                className={`${modalStyles['modal-buttons']} ${modalStyles.only}`}
+              >
+                {cancelButton}
+              </div>
             )}
             {!showCancelButton && showSuccessButton && (
-              <div className="modal-buttons only">{successButton}</div>
+              <div
+                className={`${modalStyles['modal-buttons']} ${modalStyles.only}`}
+              >
+                {successButton}
+              </div>
             )}
           </div>
         </div>
