@@ -1,4 +1,3 @@
-import './register.scss';
 import { AagButton, AagTextInput } from '../../../components';
 import { Form, Formik } from 'formik';
 import { passRegExp } from '../../../shared';
@@ -6,6 +5,7 @@ import { ThemeContext } from '../../../context/Theme.context';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
+import registerStyles from './register.module.scss';
 
 interface Props {}
 
@@ -14,7 +14,7 @@ export const Register = (props: Props) => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div className="container">
+    <div className={registerStyles.container}>
       <Formik
         initialValues={{ name: '', email: '', password1: '', password2: '' }}
         onSubmit={(values) => {
@@ -36,16 +36,28 @@ export const Register = (props: Props) => {
             .oneOf([Yup.ref('password1')], t('errors.PasswordMatch')),
         })}
       >
-        <Form className="formRegister">
-          <AagTextInput label={t('register.Name')} name="name" type="text" />
-          <AagTextInput label={t('login.Email')} name="email" type="email" />
+        <Form className={registerStyles.formRegister}>
+          <AagTextInput
+            label={t('register.Name')}
+            placeholder={t('register.Name')}
+            name="name"
+            type="text"
+          />
+          <AagTextInput
+            placeholder={t('login.Email')}
+            label={t('login.Email')}
+            name="email"
+            type="email"
+          />
           <AagTextInput
             label={t('login.Password')}
+            placeholder={t('login.Password')}
             name="password1"
             type="password"
           />
           <AagTextInput
             label={t('register.PasswordConfirm')}
+            placeholder={t('register.PasswordConfirm')}
             name="password2"
             type="password"
           />

@@ -1,4 +1,3 @@
-import './login.scss';
 import { AagButton, AagTextInput } from '../../../components';
 import { Form, Formik } from 'formik';
 import { passRegExp } from '../../../shared';
@@ -7,13 +6,14 @@ import { useContext } from 'react';
 import { UserLogin } from '../../../hooks';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
+import loginStyles from './login.module.scss';
 
 export const Login = () => {
   const { t } = useTranslation();
   const { darkMode } = useContext(ThemeContext);
   const { login } = UserLogin();
   return (
-    <div className="container">
+    <div className={loginStyles.container}>
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={({ email, password }) => {
@@ -29,7 +29,7 @@ export const Login = () => {
             .required(t('errors.Required')),
         })}
       >
-        <Form className="formLogin">
+        <Form className={loginStyles.formLogin}>
           <AagTextInput
             showLabel={true}
             label={t('login.Email')}

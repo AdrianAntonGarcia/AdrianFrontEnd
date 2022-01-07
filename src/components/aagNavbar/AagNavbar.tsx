@@ -1,7 +1,8 @@
-import './aagNavbar.scss';
 import { AagButton } from '..';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import cx from 'classnames';
+import navbarStyles from './aagNavbar.module.scss';
 
 export interface Props {
   changeTheme?: () => void;
@@ -14,58 +15,53 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
   const changeLanguage = (lng: string | undefined) => {
     i18n.changeLanguage(lng);
   };
+  /**
+   * Devuelve las clases correspondientes dependiendo si el enlace está activo y estña en modo oscuro
+   * @param param0 indica si el link está activo
+   * @returns
+   */
+  const isActiveNavlink = ({ isActive }: { isActive: boolean }) => {
+    if (isActive && darkMode)
+      return `${navbarStyles.navItem} ${navbarStyles['nav-active']} ${navbarStyles.dark}`;
+    if (isActive)
+      return `${navbarStyles.navItem} ${navbarStyles['nav-active']}`;
+    if (darkMode) return `${navbarStyles.navItem} ${navbarStyles.dark}`;
+    return navbarStyles.navItem;
+  };
   return (
-    <nav className={darkMode ? 'navBar dark' : 'navBar'}>
-      <ul className="ulFirst">
-        <li className="liNone liMarginLeft">
-          <NavLink
-            to="/home"
-            className={({ isActive }) => {
-              if (isActive && darkMode) return 'navItem dark nav-active ';
-              if (isActive) return 'navItem nav-active';
-              if (darkMode) return 'navItem dark';
-              return 'navItem';
-            }}
-          >
+    <nav
+      className={
+        darkMode
+          ? cx(navbarStyles.navBar, navbarStyles.dark)
+          : navbarStyles.navBar
+      }
+    >
+      <ul className={navbarStyles.ulFirst}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
+          <NavLink to="/home" className={isActiveNavlink}>
             {t('navbar.Home')}
           </NavLink>
         </li>
-        <li className="liNone liMarginLeft">
-          <NavLink
-            to="/login"
-            className={({ isActive }) => {
-              if (isActive && darkMode) return ' navItem dark nav-active';
-              if (isActive) return 'navItem nav-active';
-              if (darkMode) return 'navItem dark';
-              return 'navItem';
-            }}
-          >
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
+          <NavLink to="/login" className={isActiveNavlink}>
             {t('navbar.Login')}
           </NavLink>
         </li>
-        <li className="liNone liMarginLeft">
-          <NavLink
-            to="/register"
-            className={({ isActive }) => {
-              if (isActive && darkMode) return 'navItem dark nav-active ';
-              if (isActive) return 'navItem nav-active';
-              if (darkMode) return 'navItem dark';
-              return 'navItem';
-            }}
-          >
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
+          <NavLink to="/register" className={isActiveNavlink}>
             {t('navbar.Register')}
           </NavLink>
         </li>
       </ul>
-      <ul className="ulLast">
-        <li className="liNone liMarginLeft">
+      <ul className={navbarStyles.ulLast}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <AagButton
             onClick={!!changeTheme ? changeTheme : () => {}}
             label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
             theme={darkMode ? 'dark' : 'light'}
           />
         </li>
-        <li className="liNone liMarginLeft">
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <AagButton
             buttonType="dark"
             onClick={
