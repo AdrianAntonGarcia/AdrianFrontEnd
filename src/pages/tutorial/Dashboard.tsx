@@ -1,4 +1,4 @@
-import './Dashboard.scss';
+import './dashboard.scss';
 import {
   IoLogoApple,
   IoHomeOutline,
@@ -12,7 +12,7 @@ import {
 
 export const Dashboard = () => {
   return (
-    <div className="container-dash">
+    <div className="container">
       <div className="navigation">
         <ul>
           <li>

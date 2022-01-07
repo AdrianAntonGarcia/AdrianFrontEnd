@@ -68,10 +68,10 @@ const swSrc = paths.swSrc;
 
 // style files regexes
 // Lo ponemos así para que pille los .scss como modulos en vez de tener que poner el .module
-const cssRegex = /\.global\.css$/;
-const cssModuleRegex = /\.css$/;
-const sassRegex = /\.global\.(scss|sass)$/;
-const sassModuleRegex = /\.(scss|sass)$/;
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
