@@ -1,41 +1,56 @@
 import dashboardStyles from './dashboard.module.scss';
-import {
-  IoLogoApple,
-  IoHomeOutline,
-  IoPersonOutline,
-  IoChatbubblesOutline,
-  IoHelpOutline,
-  IoSettingsOutline,
-  IoLockClosedOutline,
-  IoLogOutOutline,
-} from 'react-icons/io5';
-import {
-  NavLink,
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import mainStyles from './main.module.scss';
 import { AagButton } from '../../components/shared/aagButton/AagButton';
 import { Home, Login, Register } from '..';
 import { ThemeContext } from '../../context/Theme.context';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import {
+  IoChatbubblesOutline,
+  IoHelpOutline,
+  IoHomeOutline,
+  IoLockClosedOutline,
+  IoLogoApple,
+  IoLogOutOutline,
+  IoMenuOutline,
+  IoPersonOutline,
+  IoSearchOutline,
+  IoSettingsOutline,
+} from 'react-icons/io5';
+import {
+  BrowserRouter,
+  Navigate,
+  NavLink,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import cx from 'classnames';
 
 export const Dashboard = () => {
+  const [menuToggle, setMenuToggle] = useState(false);
   const { darkMode, changeTheme } = useContext(ThemeContext);
   const [t, i18n] = useTranslation();
+  /**
+   * Cambia el lenguaje de la aplicación
+   * @param lng
+   */
   const changeLanguage = (lng: string | undefined) => {
     i18n.changeLanguage(lng);
   };
+  /**
+   * Abre o cierra el menú lateral
+   */
+  const toggleMenu = () => {
+    setMenuToggle((prev) => !prev);
+  };
   return (
     <BrowserRouter>
-      <div className={dashboardStyles.dashboardContainer}>
+      <div className={dashboardStyles.container}>
         <div
           className={cx(
             dashboardStyles.navigation,
-            darkMode && dashboardStyles.dark
+            darkMode && dashboardStyles.dark,
+            menuToggle && dashboardStyles.active
           )}
         >
           <ul>
@@ -175,15 +190,32 @@ export const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <div className={dashboardStyles.main}>
-        <div className="">
-          <Routes>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/*" element={<Navigate to="/home" replace />}></Route>
-          </Routes>
+      <div className={cx(mainStyles.main, menuToggle && mainStyles.active)}>
+        <div className={mainStyles.topbar}>
+          <div
+            className={cx(mainStyles.toggle, darkMode && mainStyles.dark)}
+            onClick={() => toggleMenu()}
+          >
+            <IoMenuOutline />
+          </div>
+          {/* search */}
+          <div className={mainStyles.search}>
+            <label>
+              <input type="text" placeholder="Search here" />
+              <IoSearchOutline />
+            </label>
+          </div>
+          {/* user image */}
+          <div className={mainStyles.user}>
+            <img src="/assets/user.jpg" alt="User Image" />
+          </div>
         </div>
+        <Routes>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/*" element={<Navigate to="/home" replace />}></Route>
+        </Routes>
       </div>
     </BrowserRouter>
   );
