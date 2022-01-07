@@ -55,7 +55,12 @@ export const Dashboard = () => {
           )}
         >
           <ul>
-            <li className={darkMode ? dashboardStyles.dark : ''}>
+            <li
+              className={cx(
+                darkMode && dashboardStyles.dark,
+                menuToggle && dashboardStyles.active
+              )}
+            >
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -200,12 +205,12 @@ export const Dashboard = () => {
             <IoMenuOutline />
           </div>
           {/* search */}
-          <div className={mainStyles.search}>
+          {/* <div className={mainStyles.search}>
             <label>
               <input type="text" placeholder="Search here" />
               <IoSearchOutline />
             </label>
-          </div>
+          </div> */}
           {/* user image */}
           <div className={mainStyles.user}>
             <img src="/assets/user.jpg" alt="User Image" />

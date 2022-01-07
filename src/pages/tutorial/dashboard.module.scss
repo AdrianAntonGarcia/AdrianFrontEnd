@@ -46,9 +46,21 @@
 }
 
 .navigation ul li:nth-child(1) {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   pointer-events: none;
 }
+
+.navigation ul li:nth-child(1).active {
+  top: 50px;
+  pointer-events: none;
+  -webkit-transform-origin-y: all 1s linear;
+  -webkit-margin-collapse: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
 .navigation ul li a {
   color: $text-color;
   display: block;
