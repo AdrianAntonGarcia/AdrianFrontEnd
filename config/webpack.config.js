@@ -67,6 +67,7 @@ const useTailwind = fs.existsSync(
 const swSrc = paths.swSrc;
 
 // style files regexes
+// Lo ponemos así para que pille los .scss como modulos en vez de tener que poner el .module
 const cssRegex = /\.global\.css$/;
 const cssModuleRegex = /\.css$/;
 const sassRegex = /\.global\.(scss|sass)$/;
