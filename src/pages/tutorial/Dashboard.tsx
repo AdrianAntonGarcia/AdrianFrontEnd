@@ -14,7 +14,6 @@ import {
   IoLogOutOutline,
   IoMenuOutline,
   IoPersonOutline,
-  IoSearchOutline,
   IoSettingsOutline,
 } from 'react-icons/io5';
 import {
@@ -70,7 +69,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLogoApple />
                 </span>
-                <span className={dashboardStyles.title}>Brand Name</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Brand Name</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -83,7 +84,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoHomeOutline />
                 </span>
-                <span className={dashboardStyles.title}>Dashboard</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Dashboard</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -96,7 +99,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoPersonOutline />
                 </span>
-                <span className={dashboardStyles.title}>Customers</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Customers</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -109,7 +114,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoChatbubblesOutline />
                 </span>
-                <span className={dashboardStyles.title}>Message</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Message</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -122,7 +129,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoHelpOutline />
                 </span>
-                <span className={dashboardStyles.title}>Help</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Help</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -135,7 +144,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoSettingsOutline />
                 </span>
-                <span className={dashboardStyles.title}>Settings</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Settings</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -148,7 +159,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLockClosedOutline />
                 </span>
-                <span className={dashboardStyles.title}>Password</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Password</span>
+                )}
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -161,7 +174,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLogOutOutline />
                 </span>
-                <span className={dashboardStyles.title}>Sign Out</span>
+                {!menuToggle && (
+                  <span className={dashboardStyles.title}>Sign Out</span>
+                )}
               </NavLink>
             </li>
             <li
