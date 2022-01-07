@@ -1,6 +1,8 @@
-import './aagTextInput.scss';
 import { CSSProperties } from 'react';
 import { useField, ErrorMessage } from 'formik';
+import cx from 'classnames';
+import textInputStyles from './aagTextInput.module.scss';
+
 interface Props {
   classNameInput?: string;
   classNameLabel?: string;
@@ -21,7 +23,7 @@ export const AagTextInput = ({ label, showLabel = true, ...props }: Props) => {
       {showLabel && (
         <label
           style={props.styleLabel}
-          className={`label-input ${props.classNameLabel}`}
+          className={cx(textInputStyles['label-input'], props.classNameLabel)}
           htmlFor={props.id || props.name}
         >
           {label}:
@@ -29,11 +31,11 @@ export const AagTextInput = ({ label, showLabel = true, ...props }: Props) => {
       )}
       <input
         style={props.styleInput}
-        className={`text-input ${props.classNameInput}`}
+        className={cx(textInputStyles['text-input'], props.classNameInput)}
         {...field}
         {...props}
       />
-      <div className="error-message">
+      <div className={textInputStyles['error-message']}>
         <ErrorMessage
           name={props.name}
           component="span"
