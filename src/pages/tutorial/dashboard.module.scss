@@ -7,32 +7,42 @@
 }
 
 .navigation {
-  position: fixed;
-  width: 300px;
+  background: $primary;
+  border-left: 10px solid $primary;
   height: 100%;
-  background: $tutorial-blue;
-  border-left: 10px solid $tutorial-blue;
-  transition: 0.5s;
   overflow: hidden;
+  position: fixed;
+  transition: 0.5s;
+  width: 300px;
+}
+
+.navigation.dark {
+  background: $primary-dark;
+  border-left: 10px solid $primary-dark;
 }
 
 .navigation ul {
+  left: 0;
   position: absolute;
   top: 200;
-  left: 0;
   width: 100%;
 }
 .navigation ul li a.hovered,
 .navigation ul li {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  list-style: none;
   position: relative;
   width: 100%;
-  list-style: none;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
 }
 .navigation ul li a.hovered,
 .navigation ul li:hover {
-  background: $tutorial-white;
+  background: $primary-light;
+}
+
+.navigation ul li.dark a.hovered,
+.navigation ul li.dark:hover {
+  background: $primary;
 }
 
 .navigation ul li:nth-child(1) {
@@ -40,25 +50,32 @@
   pointer-events: none;
 }
 .navigation ul li a {
-  position: relative;
+  color: $text-color;
   display: block;
-  width: 100%;
   display: flex;
+  position: relative;
   text-decoration: none;
-  color: $tutorial-white;
+  width: 100%;
+}
+.navigation ul li.dark a {
+  color: $text-color-dark;
 }
 
 .navigation ul li a.hovered,
 .navigation ul li:hover a {
-  color: $tutorial-blue;
+  color: $text-color;
+}
+.navigation ul li.dark a.hovered,
+.navigation ul li.dark:hover a {
+  color: $text-color-dark;
 }
 
 .navigation ul li a .icon {
-  position: relative;
   display: block;
-  min-width: 60px;
   height: 60px;
   line-height: 70px;
+  min-width: 60px;
+  position: relative;
   text-align: center;
 }
 
@@ -66,11 +83,11 @@
   font-size: 1.75em;
 }
 .navigation ul li a .title {
-  position: relative;
   display: block;
-  padding: 0 10px;
   height: 60px;
   line-height: 60px;
+  padding: 0 10px;
+  position: relative;
   text-align: start;
   white-space: nowrap;
 }
@@ -78,27 +95,48 @@
 /* Curve outside*/
 .navigation ul li a.hovered::before,
 .navigation ul li:hover a::before {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px $primary-light;
   content: '';
+  height: 50px;
+  pointer-events: none;
   position: absolute;
   right: 0;
   top: -50px;
   width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 35px 35px 0 10px $tutorial-white;
-  pointer-events: none;
 }
+.navigation ul li.dark a.hovered::before,
+.navigation ul li.dark:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary;
+}
+
 .navigation ul li a.hovered::after,
 .navigation ul li:hover a::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: -50px;
-  width: 50px;
-  height: 50px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 35px -35px 0 10px $tutorial-white;
+  bottom: -50px;
+  box-shadow: 35px -35px 0 10px $primary-light;
+  content: '';
+  height: 50px;
   pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 50px;
+}
+
+.navigation ul li.dark a.hovered::after,
+.navigation ul li.dark:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary;
+}
+
+.noshadow {
+  background: transparent !important;
+}
+
+.navigation ul li div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 1rem;
 }

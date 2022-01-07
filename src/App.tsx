@@ -8,7 +8,9 @@ export default function App() {
   if (tutorial) {
     return (
       <Suspense fallback="loading">
-        <Dashboard />
+        <ThemeChangerProvider>
+          <Dashboard />
+        </ThemeChangerProvider>
       </Suspense>
     );
   } else {

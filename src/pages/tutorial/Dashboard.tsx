@@ -17,15 +17,28 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import { AagButton } from '../../components/shared/aagButton/AagButton';
 import { Home, Login, Register } from '..';
+import { ThemeContext } from '../../context/Theme.context';
+import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import cx from 'classnames';
 
 export const Dashboard = () => {
+  const { darkMode, changeTheme } = useContext(ThemeContext);
+  const [t] = useTranslation();
+
   return (
     <BrowserRouter>
       <div className={dashboardStyles.dashboardContainer}>
-        <div className={dashboardStyles.navigation}>
+        <div
+          className={cx(
+            dashboardStyles.navigation,
+            darkMode && dashboardStyles.dark
+          )}
+        >
           <ul>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -38,9 +51,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Brand Name</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
-                to="/"
+                to="/home"
                 className={({ isActive }) =>
                   isActive ? dashboardStyles.hovered : ''
                 }
@@ -51,7 +64,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Dashboard</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
@@ -64,9 +77,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Customers</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
-                to="/"
+                to="/register"
                 className={({ isActive }) =>
                   isActive ? dashboardStyles.hovered : ''
                 }
@@ -77,7 +90,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Message</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -90,9 +103,9 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Help</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
-                to="/home"
+                to="/"
                 className={({ isActive }) =>
                   isActive ? dashboardStyles.hovered : ''
                 }
@@ -103,7 +116,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Settings</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -116,7 +129,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.title}>Password</span>
               </NavLink>
             </li>
-            <li>
+            <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -128,6 +141,30 @@ export const Dashboard = () => {
                 </span>
                 <span className={dashboardStyles.title}>Sign Out</span>
               </NavLink>
+            </li>
+            <li
+              className={cx(
+                darkMode ? dashboardStyles.dark : '',
+                dashboardStyles.noshadow
+              )}
+            >
+              <AagButton
+                onClick={!!changeTheme ? changeTheme : () => {}}
+                label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
+                theme={darkMode ? 'dark' : 'light'}
+              />
+            </li>
+            <li
+              className={cx(
+                darkMode ? dashboardStyles.dark : '',
+                dashboardStyles.noshadow
+              )}
+            >
+              <AagButton
+                onClick={!!changeTheme ? changeTheme : () => {}}
+                label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
+                theme={darkMode ? 'dark' : 'light'}
+              />
             </li>
           </ul>
         </div>
