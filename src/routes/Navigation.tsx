@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import './navigation.scss';
 import { Login, Register } from '../pages';
 import { Home } from '../pages/home/Home';
 import { AagNavbar } from '../components';

@@ -1,0 +1,83 @@
+@import '../../scss/colors.scss';
+
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  transition: 0.5s;
+}
+
+.topbar {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.toggle {
+  align-items: center;
+  background: $primary;
+  cursor: pointer;
+  display: flex;
+  font-size: 2.5em;
+  height: 60px;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  width: 60px;
+}
+
+.toggle.dark {
+  background: $primary-dark;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label input {
+  border-radius: 40px;
+  border: 1px solid $primary-dark;
+  font-size: 18px;
+  height: 40px;
+  outline: none;
+  padding: 5px 35px;
+  width: 100%;
+}
+
+.search label svg {
+  color: $text-color;
+  font-size: 1.2em;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
