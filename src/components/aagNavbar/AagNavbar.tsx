@@ -56,7 +56,7 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
       <ul className={navbarStyles.ulLast}>
         <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <AagButton
-            onClick={!!changeTheme ? changeTheme : () => {}}
+            onClick={changeTheme}
             label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
             theme={darkMode ? 'dark' : 'light'}
           />

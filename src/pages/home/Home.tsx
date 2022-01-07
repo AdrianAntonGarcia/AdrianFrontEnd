@@ -4,9 +4,7 @@ import { AagButton } from '../../components/shared/aagButton/AagButton';
 import { ThemeContext } from '../../context';
 import { useTranslation } from 'react-i18next';
 
-interface Props {}
-
-export const Home = (props: Props) => {
+export const Home = () => {
   const { darkMode } = useContext(ThemeContext);
   const [t] = useTranslation();
   const [showModal, setShowModal] = useState(false);

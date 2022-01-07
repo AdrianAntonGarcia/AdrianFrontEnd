@@ -7,9 +7,7 @@ import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 import registerStyles from './register.module.scss';
 
-interface Props {}
-
-export const Register = (props: Props) => {
+export const Register = () => {
   const { t } = useTranslation();
   const { darkMode } = useContext(ThemeContext);
 
