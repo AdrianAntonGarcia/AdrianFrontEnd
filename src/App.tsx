@@ -1,12 +1,18 @@
 import { Suspense } from 'react';
 import { ThemeChangerProvider } from './context';
 import { Navigation } from './routes';
+import { Dashboard } from './pages';
 export default function App() {
-  return (
-    <Suspense fallback="loading">
-      <ThemeChangerProvider>
-        <Navigation />
-      </ThemeChangerProvider>
-    </Suspense>
-  );
+  const tutorial = true;
+  if (tutorial) {
+    return <Dashboard />;
+  } else {
+    return (
+      <Suspense fallback="loading">
+        <ThemeChangerProvider>
+          <Navigation />
+        </ThemeChangerProvider>
+      </Suspense>
+    );
+  }
 }
