@@ -25,8 +25,10 @@ import cx from 'classnames';
 
 export const Dashboard = () => {
   const { darkMode, changeTheme } = useContext(ThemeContext);
-  const [t] = useTranslation();
-
+  const [t, i18n] = useTranslation();
+  const changeLanguage = (lng: string | undefined) => {
+    i18n.changeLanguage(lng);
+  };
   return (
     <BrowserRouter>
       <div className={dashboardStyles.dashboardContainer}>
@@ -160,8 +162,13 @@ export const Dashboard = () => {
               )}
             >
               <AagButton
-                onClick={changeTheme}
-                label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
+                buttonType="dark"
+                onClick={
+                  i18n.language === 'es'
+                    ? () => changeLanguage('en')
+                    : () => changeLanguage('es')
+                }
+                label={i18n.language === 'es' ? 'en' : 'es'}
                 theme={darkMode ? 'dark' : 'light'}
               />
             </li>

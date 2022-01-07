@@ -46,15 +46,15 @@ export const AagButton = ({
         className={
           darkMode
             ? cx(
+                buttonType && buttonStyles[buttonTypeStyles[buttonType]],
                 buttonStyles.button,
                 buttonStyles.dark,
-                classNameButton,
-                buttonType && buttonTypeStyles[buttonType]
+                classNameButton
               )
             : cx(
+                buttonType && buttonStyles[buttonTypeStyles[buttonType]],
                 buttonStyles.button,
-                buttonStyles.classNameButton,
-                buttonType && buttonTypeStyles[buttonType]
+                classNameButton
               )
         }
       >
