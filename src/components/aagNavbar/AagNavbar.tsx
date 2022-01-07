@@ -1,7 +1,8 @@
-import navbarStyles from './aagNavbar.module.scss';
 import { AagButton } from '..';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import cx from 'classnames';
+import navbarStyles from './aagNavbar.module.scss';
 
 export interface Props {
   changeTheme?: () => void;
@@ -31,36 +32,36 @@ export const AagNavbar = ({ changeTheme, theme }: Props) => {
     <nav
       className={
         darkMode
-          ? `${navbarStyles.navBar} ${navbarStyles.dark}`
+          ? cx(navbarStyles.navBar, navbarStyles.dark)
           : navbarStyles.navBar
       }
     >
       <ul className={navbarStyles.ulFirst}>
-        <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <NavLink to="/home" className={isActiveNavlink}>
             {t('navbar.Home')}
           </NavLink>
         </li>
-        <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <NavLink to="/login" className={isActiveNavlink}>
             {t('navbar.Login')}
           </NavLink>
         </li>
-        <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <NavLink to="/register" className={isActiveNavlink}>
             {t('navbar.Register')}
           </NavLink>
         </li>
       </ul>
       <ul className={navbarStyles.ulLast}>
-        <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <AagButton
             onClick={!!changeTheme ? changeTheme : () => {}}
             label={darkMode ? t('navbar.LightMode') : t('navbar.DarkMode')}
             theme={darkMode ? 'dark' : 'light'}
           />
         </li>
-        <li className={`${navbarStyles.liNone} ${navbarStyles.liMarginLeft}`}>
+        <li className={cx(navbarStyles.liNone, navbarStyles.liMarginLeft)}>
           <AagButton
             buttonType="dark"
             onClick={

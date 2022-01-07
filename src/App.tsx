@@ -4,7 +4,7 @@ import { Navigation } from './routes';
 import { Dashboard } from './pages';
 import './scss/globalStyles.scss';
 export default function App() {
-  const tutorial = true;
+  const tutorial = false;
   if (tutorial) {
     return <Dashboard />;
   } else {

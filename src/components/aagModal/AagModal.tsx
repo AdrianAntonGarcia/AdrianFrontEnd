@@ -1,5 +1,6 @@
-import modalStyles from './aagModal.module.scss';
 import { AagButton } from '..';
+import cx from 'classnames';
+import modalStyles from './aagModal.module.scss';
 
 interface Props {
   onCancel?: () => any;
@@ -48,15 +49,15 @@ export const AagModal = ({
         <div
           className={
             darkTheme
-              ? `${modalStyles['modal-content-aag']} ${modalStyles.dark}`
-              : `${modalStyles['modal-content-aag']} `
+              ? cx(modalStyles['modal-content-aag'], modalStyles.dark)
+              : cx(modalStyles['modal-content-aag'])
           }
         >
           <div className={modalStyles['modal-content-container']}>
             <span
               className={
                 darkTheme
-                  ? `${modalStyles['modal-text']} ${modalStyles.dark}`
+                  ? cx(modalStyles['modal-text'], modalStyles.dark)
                   : modalStyles['modal-text']
               }
             >
@@ -70,14 +71,14 @@ export const AagModal = ({
             )}
             {showCancelButton && !showSuccessButton && (
               <div
-                className={`${modalStyles['modal-buttons']} ${modalStyles.only}`}
+                className={cx(modalStyles['modal-buttons'], modalStyles.only)}
               >
                 {cancelButton}
               </div>
             )}
             {!showCancelButton && showSuccessButton && (
               <div
-                className={`${modalStyles['modal-buttons']} ${modalStyles.only}`}
+                className={cx(modalStyles['modal-buttons'], modalStyles.only)}
               >
                 {successButton}
               </div>

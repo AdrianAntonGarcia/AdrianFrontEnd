@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
-import './aagButton.scss';
-
+import buttonStyles from './aagButton.module.scss';
+import cx from 'classnames';
 export interface Props {
   label: string;
   onClick?: () => any;
@@ -37,7 +37,7 @@ export const AagButton = ({
   return (
     <div
       style={{ ...styleContainer }}
-      className={`buttonContainer ${classNameContainer}`}
+      className={cx(buttonStyles.buttonContainer, classNameContainer)}
     >
       <button
         onClick={() => onClick()}
@@ -45,12 +45,17 @@ export const AagButton = ({
         type={type}
         className={
           darkMode
-            ? `button dark ${classNameButton} ${
+            ? cx(
+                buttonStyles.button,
+                buttonStyles.dark,
+                classNameButton,
                 buttonType && buttonTypeStyles[buttonType]
-              }`
-            : `button ${classNameButton} ${
+              )
+            : cx(
+                buttonStyles.button,
+                buttonStyles.classNameButton,
                 buttonType && buttonTypeStyles[buttonType]
-              }`
+              )
         }
       >
         <span>{label}</span>
