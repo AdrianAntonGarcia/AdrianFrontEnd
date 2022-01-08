@@ -110,78 +110,80 @@ export const List = () => {
           <h2>Recent Customers</h2>
         </div>
         <table>
-          <tr>
-            <td width="60px">
-              <div className={listStyles.imgBx}>
-                <img src="assets/img.jpg" alt="Customer" />
-              </div>
-            </td>
-            <td>
-              <h4>
-                David <br /> <span>Italy</span>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <td width="60px">
-              <div className={listStyles.imgBx}>
-                <img src="assets/img.jpg" alt="Customer" />
-              </div>
-            </td>
-            <td>
-              <h4>
-                David <br /> <span>Italy</span>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <td width="60px">
-              <div className={listStyles.imgBx}>
-                <img src="assets/img.jpg" alt="Customer" />
-              </div>
-            </td>
-            <td>
-              <h4>
-                David <br /> <span>Italy</span>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <td width="60px">
-              <div className={listStyles.imgBx}>
-                <img src="assets/img.jpg" alt="Customer" />
-              </div>
-            </td>
-            <td>
-              <h4>
-                David <br /> <span>Italy</span>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <td width="60px">
-              <div className={listStyles.imgBx}>
-                <img src="assets/img.jpg" alt="Customer" />
-              </div>
-            </td>
-            <td>
-              <h4>
-                David <br /> <span>Italy</span>
-              </h4>
-            </td>
-          </tr>
-          <tr>
-            <td width="60px">
-              <div className={listStyles.imgBx}>
-                <img src="assets/img.jpg" alt="Customer" />
-              </div>
-            </td>
-            <td>
-              <h4>
-                David <br /> <span>Italy</span>
-              </h4>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td width="60px">
+                <div className={listStyles.imgBx}>
+                  <img src="assets/img.jpg" alt="Customer" />
+                </div>
+              </td>
+              <td>
+                <h4>
+                  David <br /> <span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td width="60px">
+                <div className={listStyles.imgBx}>
+                  <img src="assets/img.jpg" alt="Customer" />
+                </div>
+              </td>
+              <td>
+                <h4>
+                  David <br /> <span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td width="60px">
+                <div className={listStyles.imgBx}>
+                  <img src="assets/img.jpg" alt="Customer" />
+                </div>
+              </td>
+              <td>
+                <h4>
+                  David <br /> <span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td width="60px">
+                <div className={listStyles.imgBx}>
+                  <img src="assets/img.jpg" alt="Customer" />
+                </div>
+              </td>
+              <td>
+                <h4>
+                  David <br /> <span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td width="60px">
+                <div className={listStyles.imgBx}>
+                  <img src="assets/img.jpg" alt="Customer" />
+                </div>
+              </td>
+              <td>
+                <h4>
+                  David <br /> <span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td width="60px">
+                <div className={listStyles.imgBx}>
+                  <img src="assets/img.jpg" alt="Customer" />
+                </div>
+              </td>
+              <td>
+                <h4>
+                  David <br /> <span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
