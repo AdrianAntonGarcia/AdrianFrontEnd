@@ -136,6 +136,17 @@ ul {
   margin: 1rem;
 }
 
+.mainIcon {
+  position: absolute;
+  padding-top: 22px;
+  padding-left: 25px;
+}
+
+.mainIcon svg {
+  height: 40px;
+  width: 40px;
+}
+
 // hasta pequeño
 @include untilSmall {
   .dash {
@@ -166,15 +177,15 @@ ul {
 
   .mainContent {
     position: absolute;
-    top: $dash-width-closed-small;
+    top: $dash-width-closed-small + 10px;
     height: 100%;
     width: 100%;
   }
 
   .btnClose {
     position: fixed;
-    left: 5px;
-    top: 5px;
+    left: 20px;
+    top: 10px;
     z-index: 1001;
     cursor: pointer;
   }

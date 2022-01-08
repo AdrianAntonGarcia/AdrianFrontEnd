@@ -6,6 +6,7 @@ import {
   IoMenuOutline,
   IoLogInOutline,
   IoPushOutline,
+  IoCloudyNightOutline,
 } from 'react-icons/io5';
 import {
   BrowserRouter,
@@ -15,15 +16,23 @@ import {
   NavLink,
 } from 'react-router-dom';
 import { Cards, Home, List, Login, Register } from '../../pages';
+import { AagButton } from '../shared/aagButton/AagButton';
 
 export const AagDashboard = () => {
   const [dashActive, setDashActive] = useState(false);
+  const { innerWidth: width } = window;
+  console.log(dashActive);
   return (
     // <div className={styles.container}>
     <BrowserRouter>
       {/* dash */}
       <div className={styles.container}>
         <div className={cx(styles.dash, dashActive && styles.active)}>
+          {dashActive && (
+            <span className={styles.mainIcon}>
+              <IoCloudyNightOutline />
+            </span>
+          )}
           <ul>
             <li>
               <NavLink
@@ -73,7 +82,11 @@ export const AagDashboard = () => {
               className={cx(styles.btn)}
               onClick={() => setDashActive(!dashActive)}
             >
-              <IoMenuOutline />
+              {!dashActive && width > 600 ? (
+                <IoCloudyNightOutline />
+              ) : (
+                <IoMenuOutline />
+              )}
             </div>
           </div>
           <div className={styles.mainContent}>
