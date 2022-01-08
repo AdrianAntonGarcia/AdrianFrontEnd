@@ -1,0 +1,84 @@
+@import '../../scss/colors.scss';
+@import '../../scss/breakingPoints.scss';
+
+$dash-width-closed: 80px;
+$dash-width-closed-small: 50px;
+$dash-width-open: 300px;
+
+.btn svg {
+  width: 40px;
+  height: 40px;
+}
+// hasta pequeño
+@include untilSmall {
+  .dash {
+    background-color: $primary;
+    height: 100%;
+    position: absolute;
+    width: 0;
+  }
+
+  .dash.active {
+    width: 100%;
+    display: block;
+  }
+
+  .main {
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
+  }
+
+  .main.active {
+    left: 100%;
+  }
+
+  .mainContent {
+    position: absolute;
+    top: $dash-width-closed-small;
+    left: 10px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .btnClose {
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    z-index: 1001;
+  }
+  .btnClose.active {
+    position: absolute;
+    left: -60px;
+  }
+}
+// desde pequeño
+@include small {
+  .dash {
+    background-color: $primary;
+    height: 100%;
+    position: absolute;
+    width: $dash-width-closed;
+  }
+
+  .dash.active {
+    width: $dash-width-open;
+    display: block;
+  }
+
+  .main {
+    height: 100%;
+    left: $dash-width-closed;
+    padding: 20px 20px;
+    position: relative;
+  }
+
+  .main.active {
+    left: $dash-width-open;
+  }
+
+  .btnClose {
+    left: -60px;
+    position: absolute;
+  }
+}
