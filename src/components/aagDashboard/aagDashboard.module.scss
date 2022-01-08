@@ -144,6 +144,7 @@ ul {
     position: absolute;
     overflow: hidden;
     width: 0;
+    z-index: 1001;
   }
 
   .dash.active {
@@ -156,6 +157,7 @@ ul {
     width: 100%;
     position: absolute;
     z-index: 1000;
+    overflow: hidden;
   }
 
   .main.active {
@@ -192,6 +194,7 @@ ul {
     background-color: $primary;
     height: 100%;
     position: absolute;
+    z-index: 2;
     overflow: hidden;
     width: $dash-width-closed;
   }
@@ -216,6 +219,7 @@ ul {
   .btnClose {
     left: -60px;
     position: absolute;
+    z-index: 3;
     cursor: pointer;
   }
 
