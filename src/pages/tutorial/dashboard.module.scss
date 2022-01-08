@@ -20,6 +20,13 @@
     left: 0px;
   }
 }
+.active {
+  left: 0;
+  width: 300px;
+  @include small {
+    width: 80px;
+  }
+}
 
 .navigation.dark {
   background: $primary-dark;
@@ -158,12 +165,4 @@
   flex: 1;
   justify-content: center;
   margin: 1rem;
-}
-
-.active {
-  left: 0;
-  width: 300px;
-  @include small {
-    width: 80px;
-  }
 }

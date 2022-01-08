@@ -40,10 +40,8 @@ export const Dashboard = () => {
   /**
    * Abre o cierra el menú lateral
    */
-  const toggleMenu = () => {
-    setMenuToggle((prev) => !prev);
-    console.log(menuToggle);
-  };
+  const toggleMenu = () => setMenuToggle(!menuToggle);
+
   return (
     <BrowserRouter>
       <div className={dashboardStyles.container}>
