@@ -83,6 +83,7 @@
   text-decoration: none;
   width: 100%;
 }
+
 .navigation ul li.dark a {
   color: $text-color-dark;
 }
@@ -116,6 +117,12 @@
   position: relative;
   text-align: start;
   white-space: nowrap;
+}
+
+.navigation.active ul li a .title {
+  @include small {
+    color: transparent;
+  }
 }
 
 /* Curve outside*/
