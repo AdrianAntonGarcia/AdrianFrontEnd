@@ -122,7 +122,7 @@ export const Dashboard = () => {
                 }
               >
                 <span className={dashboardStyles.icon}>
-                  <IoHelpOutline />
+                  <IoHelpOutline height={30} />
                 </span>
 
                 <span className={dashboardStyles.title}>Help</span>

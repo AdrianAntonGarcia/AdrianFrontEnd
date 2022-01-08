@@ -1,8 +1,19 @@
 import styles from './aagDashboard.module.scss';
 import { useState } from 'react';
 import cx from 'classnames';
-import { IoMenuOutline } from 'react-icons/io5';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {
+  IoHomeOutline,
+  IoMenuOutline,
+  IoLogInOutline,
+  IoPushOutline,
+} from 'react-icons/io5';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  NavLink,
+} from 'react-router-dom';
 import { Cards, Home, List, Login, Register } from '../../pages';
 
 export const AagDashboard = () => {
@@ -14,7 +25,42 @@ export const AagDashboard = () => {
       <div className={styles.container}>
         <div className={cx(styles.dash, dashActive && styles.active)}>
           <ul>
-            <li></li>
+            <li>
+              <NavLink
+                to="/home"
+                className={({ isActive }) => (isActive ? styles.hovered : '')}
+              >
+                <span className={styles.icon}>
+                  <IoHomeOutline />
+                </span>
+
+                <span className={styles.title}>Home</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? styles.hovered : '')}
+              >
+                <span className={styles.icon}>
+                  <IoLogInOutline />
+                </span>
+
+                <span className={styles.title}>Login</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/register"
+                className={({ isActive }) => (isActive ? styles.hovered : '')}
+              >
+                <span className={styles.icon}>
+                  <IoPushOutline />
+                </span>
+
+                <span className={styles.title}>Register</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
         {/* main */}

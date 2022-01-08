@@ -17,11 +17,123 @@ $dash-width-open: 25%;
 }
 
 ul {
-  background: $primary-light;
   left: 0;
   position: absolute;
-  top: 150px;
+  top: 80px;
   width: 100%;
+}
+
+.dash ul li {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.dash ul li a {
+  color: $text-color;
+  display: block;
+  display: flex;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.dash ul li a.hovered,
+.dash ul li {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+.dash ul li a.hovered,
+.dash ul li:hover {
+  background: $primary-light;
+}
+
+.dash ul li.dark a.hovered,
+.dash ul li.dark:hover {
+  background: $primary;
+}
+
+.dash ul li a svg {
+  display: block;
+  height: 40px;
+  line-height: 70px;
+  min-width: 60px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.dash ul li a .title {
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 10px;
+  position: relative;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.dash:not(.active) ul li a .title {
+  @include small {
+    color: transparent;
+  }
+}
+
+/* Curve outside*/
+.dash ul li a.hovered::before,
+.dash ul li:hover a::before {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px $primary-light;
+  content: '';
+  height: 50px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+}
+
+.dash ul li.dark a.hovered::before,
+.dash ul li.dark:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary;
+}
+
+.dash ul li a.hovered::after,
+.dash ul li:hover a::after {
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: -50px;
+  box-shadow: 35px -35px 0 10px $primary-light;
+  content: '';
+  height: 50px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 50px;
+}
+
+.dash ul li.dark a.hovered::after,
+.dash ul li.dark:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary;
+}
+
+.noshadow {
+  background: transparent !important;
+}
+
+.dash ul li div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 1rem;
 }
 
 // hasta pequeño
@@ -30,6 +142,7 @@ ul {
     background-color: $primary;
     height: 100%;
     position: absolute;
+    overflow: hidden;
     width: 0;
   }
 
@@ -67,13 +180,19 @@ ul {
     position: absolute;
     left: -60px;
   }
+  .dash:not(.active) ul li a .icon,
+  .dash:not(.active) ul li a .title {
+    color: transparent;
+  }
 }
+
 // desde pequeño
 @include small {
   .dash {
     background-color: $primary;
     height: 100%;
     position: absolute;
+    overflow: hidden;
     width: $dash-width-closed;
   }
 
@@ -85,9 +204,9 @@ ul {
   .main {
     height: 100%;
     width: 100%;
+    position: relative;
     left: $dash-width-closed;
-    padding: 20px 0;
-    position: absolute;
+    padding-top: 20px;
   }
 
   .main.active {
@@ -98,5 +217,9 @@ ul {
     left: -60px;
     position: absolute;
     cursor: pointer;
+  }
+
+  .dash:not(.active) ul li a .title {
+    color: transparent;
   }
 }
