@@ -1,7 +1,7 @@
 import dashboardStyles from './dashboard.module.scss';
 import mainStyles from './main.module.scss';
 import { AagButton } from '../../components/shared/aagButton/AagButton';
-import { Home, Login, Register } from '..';
+import { Home, List, Login, Register } from '..';
 import { ThemeContext } from '../../context/Theme.context';
 import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -42,6 +42,7 @@ export const Dashboard = () => {
    */
   const toggleMenu = () => {
     setMenuToggle((prev) => !prev);
+    console.log(menuToggle);
   };
   return (
     <BrowserRouter>
@@ -50,14 +51,14 @@ export const Dashboard = () => {
           className={cx(
             dashboardStyles.navigation,
             darkMode && dashboardStyles.dark,
-            menuToggle && dashboardStyles.active
+            !!menuToggle && dashboardStyles.active
           )}
         >
           <ul>
             <li
               className={cx(
                 darkMode && dashboardStyles.dark,
-                menuToggle && dashboardStyles.active
+                !!menuToggle && dashboardStyles.active
               )}
             >
               <NavLink
@@ -69,9 +70,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLogoApple />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Brand Name</span>
-                )}
+
+                <span className={dashboardStyles.title}>Brand Name</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -84,9 +84,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoHomeOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Dashboard</span>
-                )}
+
+                <span className={dashboardStyles.title}>Dashboard</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -99,9 +98,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoPersonOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Customers</span>
-                )}
+
+                <span className={dashboardStyles.title}>Customers</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -114,9 +112,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoChatbubblesOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Message</span>
-                )}
+
+                <span className={dashboardStyles.title}>Message</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -129,14 +126,13 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoHelpOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Help</span>
-                )}
+
+                <span className={dashboardStyles.title}>Help</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
-                to="/"
+                to="/list"
                 className={({ isActive }) =>
                   isActive ? dashboardStyles.hovered : ''
                 }
@@ -144,9 +140,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoSettingsOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Settings</span>
-                )}
+
+                <span className={dashboardStyles.title}>Settings</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -159,9 +154,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLockClosedOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Password</span>
-                )}
+
+                <span className={dashboardStyles.title}>Password</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
@@ -174,9 +168,8 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLogOutOutline />
                 </span>
-                {!menuToggle && (
-                  <span className={dashboardStyles.title}>Sign Out</span>
-                )}
+
+                <span className={dashboardStyles.title}>Sign Out</span>
               </NavLink>
             </li>
             <li
@@ -236,6 +229,7 @@ export const Dashboard = () => {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/cards" element={<Cards />}></Route>
+          <Route path="/list" element={<List />}></Route>
           <Route path="/*" element={<Navigate to="/home" replace />}></Route>
         </Routes>
       </div>

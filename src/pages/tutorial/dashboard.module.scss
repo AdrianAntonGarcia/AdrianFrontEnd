@@ -1,4 +1,5 @@
 @import '../../scss/colors.scss';
+@import '../../scss/breakingPoints.scss';
 
 .container {
   overflow: hidden;
@@ -14,6 +15,10 @@
   position: fixed;
   transition: 0.5s;
   width: 300px;
+  left: -300px;
+  @include small {
+    left: 0px;
+  }
 }
 
 .navigation.dark {
@@ -51,7 +56,9 @@
 }
 
 .navigation ul li:nth-child(1).active {
-  top: 50px;
+  @include small {
+    top: 50px;
+  }
   pointer-events: none;
   -webkit-transform-origin-y: all 1s linear;
   -webkit-margin-collapse: all 1s linear;
@@ -154,5 +161,9 @@
 }
 
 .active {
-  width: 80px;
+  left: 0;
+  width: 300px;
+  @include small {
+    width: 80px;
+  }
 }
