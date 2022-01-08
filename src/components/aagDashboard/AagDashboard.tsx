@@ -29,6 +29,7 @@ export const AagDashboard = () => {
               <NavLink
                 to="/home"
                 className={({ isActive }) => (isActive ? styles.hovered : '')}
+                onClick={() => dashActive && setDashActive(!dashActive)}
               >
                 <span className={styles.icon}>
                   <IoHomeOutline />
@@ -41,6 +42,7 @@ export const AagDashboard = () => {
               <NavLink
                 to="/login"
                 className={({ isActive }) => (isActive ? styles.hovered : '')}
+                onClick={() => dashActive && setDashActive(!dashActive)}
               >
                 <span className={styles.icon}>
                   <IoLogInOutline />
@@ -53,6 +55,7 @@ export const AagDashboard = () => {
               <NavLink
                 to="/register"
                 className={({ isActive }) => (isActive ? styles.hovered : '')}
+                onClick={() => dashActive && setDashActive(!dashActive)}
               >
                 <span className={styles.icon}>
                   <IoPushOutline />
