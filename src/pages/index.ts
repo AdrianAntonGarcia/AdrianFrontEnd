@@ -1,3 +1,4 @@
+export { Grid } from './css-tutorial/Grid';
 export { List } from './tutorial/list/List';
 export { Cards } from './tutorial/cards/Cards';
 export { Dashboard } from './tutorial/Dashboard';

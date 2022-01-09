@@ -2,14 +2,14 @@ import { Suspense } from 'react';
 import { ThemeChangerProvider } from './context';
 import { Navigation } from './routes';
 import './scss/globalStyles.scss';
-import { AagDashboard } from './components';
+import { Grid } from './pages';
 export default function App() {
   const tutorial = true;
   if (tutorial) {
     return (
       <Suspense fallback="loading">
         <ThemeChangerProvider>
-          <AagDashboard />
+          <Grid />
         </ThemeChangerProvider>
       </Suspense>
     );
