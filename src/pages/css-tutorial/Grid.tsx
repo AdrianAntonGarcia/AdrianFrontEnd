@@ -31,7 +31,7 @@ export const Grid = () => {
             <a href="">Read more</a>
           </div>
         </div>
-        {/* <div className="card">
+        <div className="card">
           <img
             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/gridarea-card-img-01.jpg"
             alt=""
@@ -64,7 +64,7 @@ export const Grid = () => {
             </p>
             <a href="">Read more</a>
           </div>
-        </div> */}
+        </div>
       </main>
 
       <aside>

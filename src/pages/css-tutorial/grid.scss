@@ -61,7 +61,8 @@ $white: #fff;
     'header header header header' 10em
     'hero hero hero hero' 50vh
     '. main sidebar .' auto
-    'footer footer footer footer' 10em / 1fr minmax(30em, 5fr) 2fr 1fr;
+    'footer footer footer footer' 10em / 1fr minmax(30em, 5fr) minmax(15em, 2fr)
+    1fr;
   grid-column-gap: 1.5em;
 }
 
@@ -130,6 +131,7 @@ footer {
   grid-column-gap: 1.5em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   padding: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .card-img {
@@ -145,4 +147,9 @@ footer {
 
 .card-content {
   grid-area: content;
+
+  a {
+    color: $yellow;
+    font-size: 1.1em;
+  }
 }
