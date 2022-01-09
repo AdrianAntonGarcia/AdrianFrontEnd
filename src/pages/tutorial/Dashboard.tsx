@@ -1,7 +1,7 @@
 import dashboardStyles from './dashboard.module.scss';
 import mainStyles from './main.module.scss';
 import { AagButton } from '../../components/shared/aagButton/AagButton';
-import { Home, Login, Register } from '..';
+import { Home, List, Login, Register } from '..';
 import { ThemeContext } from '../../context/Theme.context';
 import { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,6 @@ import {
   IoLogOutOutline,
   IoMenuOutline,
   IoPersonOutline,
-  IoSearchOutline,
   IoSettingsOutline,
 } from 'react-icons/io5';
 import {
@@ -41,9 +40,8 @@ export const Dashboard = () => {
   /**
    * Abre o cierra el menú lateral
    */
-  const toggleMenu = () => {
-    setMenuToggle((prev) => !prev);
-  };
+  const toggleMenu = () => setMenuToggle(!menuToggle);
+
   return (
     <BrowserRouter>
       <div className={dashboardStyles.container}>
@@ -51,11 +49,16 @@ export const Dashboard = () => {
           className={cx(
             dashboardStyles.navigation,
             darkMode && dashboardStyles.dark,
-            menuToggle && dashboardStyles.active
+            !!menuToggle && dashboardStyles.active
           )}
         >
           <ul>
-            <li className={darkMode ? dashboardStyles.dark : ''}>
+            <li
+              className={cx(
+                darkMode && dashboardStyles.dark,
+                !!menuToggle && dashboardStyles.active
+              )}
+            >
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -65,6 +68,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLogoApple />
                 </span>
+
                 <span className={dashboardStyles.title}>Brand Name</span>
               </NavLink>
             </li>
@@ -78,6 +82,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoHomeOutline />
                 </span>
+
                 <span className={dashboardStyles.title}>Dashboard</span>
               </NavLink>
             </li>
@@ -91,6 +96,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoPersonOutline />
                 </span>
+
                 <span className={dashboardStyles.title}>Customers</span>
               </NavLink>
             </li>
@@ -104,6 +110,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoChatbubblesOutline />
                 </span>
+
                 <span className={dashboardStyles.title}>Message</span>
               </NavLink>
             </li>
@@ -115,14 +122,15 @@ export const Dashboard = () => {
                 }
               >
                 <span className={dashboardStyles.icon}>
-                  <IoHelpOutline />
+                  <IoHelpOutline height={30} />
                 </span>
+
                 <span className={dashboardStyles.title}>Help</span>
               </NavLink>
             </li>
             <li className={darkMode ? dashboardStyles.dark : ''}>
               <NavLink
-                to="/"
+                to="/list"
                 className={({ isActive }) =>
                   isActive ? dashboardStyles.hovered : ''
                 }
@@ -130,6 +138,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoSettingsOutline />
                 </span>
+
                 <span className={dashboardStyles.title}>Settings</span>
               </NavLink>
             </li>
@@ -143,6 +152,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLockClosedOutline />
                 </span>
+
                 <span className={dashboardStyles.title}>Password</span>
               </NavLink>
             </li>
@@ -156,6 +166,7 @@ export const Dashboard = () => {
                 <span className={dashboardStyles.icon}>
                   <IoLogOutOutline />
                 </span>
+
                 <span className={dashboardStyles.title}>Sign Out</span>
               </NavLink>
             </li>
@@ -200,12 +211,12 @@ export const Dashboard = () => {
             <IoMenuOutline />
           </div>
           {/* search */}
-          <div className={mainStyles.search}>
+          {/* <div className={mainStyles.search}>
             <label>
               <input type="text" placeholder="Search here" />
               <IoSearchOutline />
             </label>
-          </div>
+          </div> */}
           {/* user image */}
           <div className={mainStyles.user}>
             <img src="/assets/user.jpg" alt="User Image" />
@@ -216,6 +227,7 @@ export const Dashboard = () => {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/cards" element={<Cards />}></Route>
+          <Route path="/list" element={<List />}></Route>
           <Route path="/*" element={<Navigate to="/home" replace />}></Route>
         </Routes>
       </div>

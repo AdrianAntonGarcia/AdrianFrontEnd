@@ -18,3 +18,21 @@
     @content;
   }
 }
+
+@mixin untilSmall {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin untilMedium {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin untilLarge {
+  @media only screen and (max-width: 1440px) {
+    @content;
+  }
+}

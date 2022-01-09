@@ -1,0 +1,326 @@
+@import '../scss/colors.scss';
+@import '../scss/breakingPoints.scss';
+
+$dash-width-closed: 80px;
+$dash-width-closed-small: 50px;
+$dash-width-open: 25%;
+
+.container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.btn svg {
+  width: 40px;
+  height: 40px;
+}
+
+ul {
+  left: 0;
+  position: relative;
+  top: 80px;
+  width: 100%;
+}
+
+.dash ul.firstItems li {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.dash ul.firstItems li a {
+  color: $text-color;
+  display: block;
+  display: flex;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.dash.dark ul.firstItems li a {
+  color: $text-color-dark;
+}
+
+.dash ul.firstItems li a.hovered,
+.dash ul.firstItems li {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+.dash ul.firstItems li a.hovered,
+.dash ul.firstItems li:hover {
+  background: $primary;
+}
+
+.dash.dark ul.firstItems li a.hovered,
+.dash.dark ul.firstItems li:hover {
+  background: $primary-light;
+}
+
+.dash ul.firstItems li.dark a.hovered,
+.dash ul.firstItems li.dark:hover {
+  background: $primary;
+}
+
+.dash.dark ul.firstItems li.dark a.hovered,
+.dash.dark ul.firstItems li.dark:hover {
+  background: $primary-light;
+}
+
+.dash ul.firstItems li a svg {
+  display: block;
+  height: 40px;
+  line-height: 70px;
+  min-width: 60px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.dash ul.firstItems li div {
+  display: block;
+  height: 40px;
+  line-height: 70px;
+  min-width: 60px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.dash ul.firstItems li a .title {
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 10px;
+  position: relative;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.dash:not(.active) ul.firstItems li a .title {
+  @include small {
+    color: transparent;
+  }
+}
+
+/* Curve outside*/
+.dash ul.firstItems li a.hovered::before,
+.dash ul.firstItems li:hover a::before {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px $primary;
+  content: '';
+  height: 50px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+}
+.dash.dark ul.firstItems li a.hovered::before,
+.dash.dark ul.firstItems li:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary-light;
+}
+
+.dash ul.firstItems li.dark a.hovered::before,
+.dash ul.firstItems li.dark:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary;
+}
+
+.dash.dark ul.firstItems li.dark a.hovered::before,
+.dash.dark ul.firstItems li.dark:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary-light;
+}
+
+.dash ul.firstItems li a.hovered::after,
+.dash ul.firstItems li:hover a::after {
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: -50px;
+  box-shadow: 35px -35px 0 10px $primary;
+  content: '';
+  height: 50px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 50px;
+}
+
+.dash.dark ul.firstItems li a.hovered::after,
+.dash.dark ul.firstItems li:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary-light;
+}
+
+.dash ul.firstItems li.dark a.hovered::after,
+.dash ul.firstItems li.dark:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary;
+}
+
+.dash.dark ul.firstItems li.dark a.hovered::after,
+.dash.dark ul.firstItems li.dark:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary-light;
+}
+
+.noshadow {
+  background: transparent !important;
+}
+
+.dash ul.firstItems li div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.mainIcon {
+  position: absolute;
+  padding-top: 22px;
+  padding-left: 25px;
+}
+
+.mainIcon svg {
+  height: 40px;
+  width: 40px;
+}
+
+// hasta pequeño
+@include untilSmall {
+  .dash {
+    background-color: $primary-light;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    z-index: 1001;
+  }
+  .dash.dark {
+    background-color: $primary;
+  }
+
+  .dash.active {
+    width: 100%;
+    display: block;
+  }
+
+  .main {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  .main.active {
+    left: 100%;
+  }
+
+  .mainContent {
+    position: absolute;
+    top: $dash-width-closed-small + 10px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .btnClose {
+    position: fixed;
+    left: 20px;
+    top: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+  .btnClose.active {
+    position: absolute;
+    left: -60px;
+  }
+  .dash:not(.active) ul li a .icon,
+  .dash:not(.active) ul li a .title {
+    color: transparent;
+  }
+}
+
+// desde pequeño
+@include small {
+  .dash {
+    background-color: $primary-light;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    width: $dash-width-closed;
+  }
+  .dash.dark {
+    background-color: $primary;
+  }
+
+  .dash.active {
+    width: $dash-width-open;
+    display: block;
+  }
+
+  .main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left: $dash-width-closed;
+    padding-top: 20px;
+  }
+
+  .main.active {
+    left: $dash-width-open;
+  }
+
+  .btnClose {
+    left: -60px;
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .dash:not(.active) ul li a .title {
+    color: transparent;
+  }
+}
+
+.buttonsList {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.buttonsList li {
+  width: fit-content;
+  margin-top: 1.5em;
+  padding: 10px;
+  display: flex;
+  text-align: center;
+  border-radius: 20px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.buttonsList li:hover {
+  background: $primary;
+  transition: 0.2s;
+}
+
+.buttonsList.dark li:hover {
+  background: $primary-light;
+  transition: 0.2s;
+}
+
+.buttonsList li svg {
+  height: 40px;
+  width: 40px;
+}
