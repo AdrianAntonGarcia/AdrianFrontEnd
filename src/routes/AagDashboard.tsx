@@ -15,8 +15,7 @@ import {
   Navigate,
   NavLink,
 } from 'react-router-dom';
-import { Cards, Home, List, Login, Register } from '../../pages';
-import { AagButton } from '../shared/aagButton/AagButton';
+import { Cards, Home, List, Login, Register } from '../pages';
 
 export const AagDashboard = () => {
   const [dashActive, setDashActive] = useState(false);
