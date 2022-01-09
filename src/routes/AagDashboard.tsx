@@ -1,5 +1,5 @@
 import styles from './aagDashboard.module.scss';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import cx from 'classnames';
 import {
   IoHomeOutline,
@@ -7,6 +7,8 @@ import {
   IoLogInOutline,
   IoPushOutline,
   IoCloudyNightOutline,
+  IoLanguageOutline,
+  IoMoonOutline,
 } from 'react-icons/io5';
 import {
   BrowserRouter,
@@ -16,23 +18,34 @@ import {
   NavLink,
 } from 'react-router-dom';
 import { Cards, Home, List, Login, Register } from '../pages';
+import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../context';
 
 export const AagDashboard = () => {
   const [dashActive, setDashActive] = useState(false);
+  const { darkMode, changeTheme } = useContext(ThemeContext);
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng: string | undefined) => {
+    i18n.changeLanguage(lng);
+  };
   const { innerWidth: width } = window;
-  console.log(dashActive);
   return (
-    // <div className={styles.container}>
     <BrowserRouter>
       {/* dash */}
       <div className={styles.container}>
-        <div className={cx(styles.dash, dashActive && styles.active)}>
+        <div
+          className={cx(
+            styles.dash,
+            dashActive && styles.active,
+            darkMode && styles.dark
+          )}
+        >
           {dashActive && (
             <span className={styles.mainIcon}>
               <IoCloudyNightOutline />
             </span>
           )}
-          <ul>
+          <ul className={styles.firstItems}>
             <li>
               <NavLink
                 to="/home"
@@ -71,6 +84,20 @@ export const AagDashboard = () => {
 
                 <span className={styles.title}>Register</span>
               </NavLink>
+            </li>
+          </ul>
+          <ul className={cx(styles.buttonsList, darkMode && styles.dark)}>
+            <li>
+              <IoLanguageOutline
+                onClick={
+                  i18n.language === 'es'
+                    ? () => changeLanguage('en')
+                    : () => changeLanguage('es')
+                }
+              />
+            </li>
+            <li>
+              <IoMoonOutline onClick={changeTheme} />
             </li>
           </ul>
         </div>

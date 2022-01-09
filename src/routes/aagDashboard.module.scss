@@ -18,12 +18,12 @@ $dash-width-open: 25%;
 
 ul {
   left: 0;
-  position: absolute;
+  position: relative;
   top: 80px;
   width: 100%;
 }
 
-.dash ul li {
+.dash ul.firstItems li {
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
   list-style: none;
@@ -31,7 +31,7 @@ ul {
   width: 100%;
 }
 
-.dash ul li a {
+.dash ul.firstItems li a {
   color: $text-color;
   display: block;
   display: flex;
@@ -41,25 +41,39 @@ ul {
   margin-top: 35px;
 }
 
-.dash ul li a.hovered,
-.dash ul li {
+.dash.dark ul.firstItems li a {
+  color: $text-color-dark;
+}
+
+.dash ul.firstItems li a.hovered,
+.dash ul.firstItems li {
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
   list-style: none;
   position: relative;
   width: 100%;
 }
-.dash ul li a.hovered,
-.dash ul li:hover {
-  background: $primary-light;
-}
-
-.dash ul li.dark a.hovered,
-.dash ul li.dark:hover {
+.dash ul.firstItems li a.hovered,
+.dash ul.firstItems li:hover {
   background: $primary;
 }
 
-.dash ul li a svg {
+.dash.dark ul.firstItems li a.hovered,
+.dash.dark ul.firstItems li:hover {
+  background: $primary-light;
+}
+
+.dash ul.firstItems li.dark a.hovered,
+.dash ul.firstItems li.dark:hover {
+  background: $primary;
+}
+
+.dash.dark ul.firstItems li.dark a.hovered,
+.dash.dark ul.firstItems li.dark:hover {
+  background: $primary-light;
+}
+
+.dash ul.firstItems li a svg {
   display: block;
   height: 40px;
   line-height: 70px;
@@ -70,7 +84,18 @@ ul {
   margin-left: 10px;
 }
 
-.dash ul li a .title {
+.dash ul.firstItems li div {
+  display: block;
+  height: 40px;
+  line-height: 70px;
+  min-width: 60px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.dash ul.firstItems li a .title {
   display: block;
   height: 60px;
   line-height: 60px;
@@ -80,18 +105,18 @@ ul {
   white-space: nowrap;
 }
 
-.dash:not(.active) ul li a .title {
+.dash:not(.active) ul.firstItems li a .title {
   @include small {
     color: transparent;
   }
 }
 
 /* Curve outside*/
-.dash ul li a.hovered::before,
-.dash ul li:hover a::before {
+.dash ul.firstItems li a.hovered::before,
+.dash ul.firstItems li:hover a::before {
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 35px 35px 0 10px $primary-light;
+  box-shadow: 35px 35px 0 10px $primary;
   content: '';
   height: 50px;
   pointer-events: none;
@@ -100,18 +125,27 @@ ul {
   top: -50px;
   width: 50px;
 }
+.dash.dark ul.firstItems li a.hovered::before,
+.dash.dark ul.firstItems li:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary-light;
+}
 
-.dash ul li.dark a.hovered::before,
-.dash ul li.dark:hover a::before {
+.dash ul.firstItems li.dark a.hovered::before,
+.dash ul.firstItems li.dark:hover a::before {
   box-shadow: 35px 35px 0 10px $primary;
 }
 
-.dash ul li a.hovered::after,
-.dash ul li:hover a::after {
+.dash.dark ul.firstItems li.dark a.hovered::before,
+.dash.dark ul.firstItems li.dark:hover a::before {
+  box-shadow: 35px 35px 0 10px $primary-light;
+}
+
+.dash ul.firstItems li a.hovered::after,
+.dash ul.firstItems li:hover a::after {
   background-color: transparent;
   border-radius: 50%;
   bottom: -50px;
-  box-shadow: 35px -35px 0 10px $primary-light;
+  box-shadow: 35px -35px 0 10px $primary;
   content: '';
   height: 50px;
   pointer-events: none;
@@ -120,16 +154,26 @@ ul {
   width: 50px;
 }
 
-.dash ul li.dark a.hovered::after,
-.dash ul li.dark:hover a::after {
+.dash.dark ul.firstItems li a.hovered::after,
+.dash.dark ul.firstItems li:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary-light;
+}
+
+.dash ul.firstItems li.dark a.hovered::after,
+.dash ul.firstItems li.dark:hover a::after {
   box-shadow: 35px -35px 0 10px $primary;
+}
+
+.dash.dark ul.firstItems li.dark a.hovered::after,
+.dash.dark ul.firstItems li.dark:hover a::after {
+  box-shadow: 35px -35px 0 10px $primary-light;
 }
 
 .noshadow {
   background: transparent !important;
 }
 
-.dash ul li div {
+.dash ul.firstItems li div {
   display: flex;
   flex: 1;
   justify-content: center;
@@ -150,12 +194,15 @@ ul {
 // hasta pequeño
 @include untilSmall {
   .dash {
-    background-color: $primary;
+    background-color: $primary-light;
     height: 100%;
     position: absolute;
     overflow: hidden;
     width: 0;
     z-index: 1001;
+  }
+  .dash.dark {
+    background-color: $primary;
   }
 
   .dash.active {
@@ -202,12 +249,15 @@ ul {
 // desde pequeño
 @include small {
   .dash {
-    background-color: $primary;
+    background-color: $primary-light;
     height: 100%;
     position: absolute;
     z-index: 2;
     overflow: hidden;
     width: $dash-width-closed;
+  }
+  .dash.dark {
+    background-color: $primary;
   }
 
   .dash.active {
@@ -237,4 +287,40 @@ ul {
   .dash:not(.active) ul li a .title {
     color: transparent;
   }
+}
+
+.buttonsList {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.buttonsList li {
+  width: fit-content;
+  margin-top: 1.5em;
+  padding: 10px;
+  display: flex;
+  text-align: center;
+  border-radius: 20px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.buttonsList li:hover {
+  background: $primary;
+  transition: 0.2s;
+}
+
+.buttonsList.dark li:hover {
+  background: $primary-light;
+  transition: 0.2s;
+}
+
+.buttonsList li svg {
+  height: 40px;
+  width: 40px;
 }
