@@ -56,7 +56,7 @@ export const AagDashboard = () => {
                   <IoHomeOutline />
                 </span>
 
-                <span className={styles.title}>Home</span>
+                <span className={styles.title}>{t('navbar.Home')}</span>
               </NavLink>
             </li>
             <li>
@@ -69,7 +69,7 @@ export const AagDashboard = () => {
                   <IoLogInOutline />
                 </span>
 
-                <span className={styles.title}>Login</span>
+                <span className={styles.title}>{t('login.Login')}</span>
               </NavLink>
             </li>
             <li>
@@ -82,7 +82,7 @@ export const AagDashboard = () => {
                   <IoPushOutline />
                 </span>
 
-                <span className={styles.title}>Register</span>
+                <span className={styles.title}>{t('register.Register')}</span>
               </NavLink>
             </li>
           </ul>
