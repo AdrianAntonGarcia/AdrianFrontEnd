@@ -264,7 +264,12 @@ ul {
 
   .dash.active {
     width: $dash-width-open;
+    background-color: rgba(169, 214, 229, 0.8);
     display: block;
+  }
+
+  .dash.active.dark {
+    background-color: rgba(42, 111, 151, 0.8);
   }
 
   .main {
