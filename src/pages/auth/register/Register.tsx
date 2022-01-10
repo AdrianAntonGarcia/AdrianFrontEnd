@@ -35,6 +35,7 @@ export const Register = () => {
         })}
       >
         <Form className={registerStyles.formRegister}>
+          <h1>{t('register.Register')}</h1>
           <AagTextInput
             label={t('register.Name')}
             placeholder={t('register.Name')}
