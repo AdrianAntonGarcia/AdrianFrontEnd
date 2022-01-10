@@ -41,7 +41,10 @@ export const AagDashboard = () => {
           )}
         >
           {dashActive && (
-            <span className={styles.mainIcon}>
+            <span
+              className={styles.mainIcon}
+              onClick={() => setDashActive(!dashActive)}
+            >
               <IoCloudyNightOutline />
             </span>
           )}
@@ -108,11 +111,8 @@ export const AagDashboard = () => {
               className={cx(styles.btn)}
               onClick={() => setDashActive(!dashActive)}
             >
-              {!dashActive && width > 600 ? (
-                <IoCloudyNightOutline />
-              ) : (
-                <IoMenuOutline />
-              )}
+              {!dashActive && width > 600 && <IoCloudyNightOutline />}
+              {!dashActive && width < 600 && <IoMenuOutline />}
             </div>
           </div>
           <div className={styles.mainContent}>

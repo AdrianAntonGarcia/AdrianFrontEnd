@@ -100,6 +100,8 @@ ul {
   height: 60px;
   line-height: 60px;
   padding: 0 10px;
+  font-size: large;
+  font-weight: 600;
   position: relative;
   text-align: start;
   white-space: nowrap;
@@ -251,8 +253,8 @@ ul {
   .dash {
     background-color: $primary-light;
     height: 100%;
-    position: absolute;
-    z-index: 2;
+    position: fixed;
+    z-index: 9999;
     overflow: hidden;
     width: $dash-width-closed;
   }
@@ -262,15 +264,22 @@ ul {
 
   .dash.active {
     width: $dash-width-open;
+    background-color: rgba(169, 214, 229, 0.8);
     display: block;
+  }
+
+  .dash.active.dark {
+    background-color: rgba(42, 111, 151, 0.8);
   }
 
   .main {
     height: 100%;
-    width: 100%;
-    position: relative;
+    width: 100vw;
+    position: static;
+    margin-left: $dash-width-closed;
     left: $dash-width-closed;
     padding-top: 20px;
+    z-index: 1;
   }
 
   .main.active {
@@ -278,9 +287,9 @@ ul {
   }
 
   .btnClose {
-    left: -60px;
     position: absolute;
-    z-index: 3;
+    z-index: 10000;
+    left: 20px;
     cursor: pointer;
   }
 
