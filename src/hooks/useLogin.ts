@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { useState, useContext } from 'react';
 import { LoginResponse } from '../interfaces';
-import { ModalContext } from '../context/Modal.context';
 
 export const useLogin = () => {
   /**

@@ -20,9 +20,11 @@ import {
 import { Cards, Home, List, Login, Register } from '../pages';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context';
+import { ModalContext } from '../context/Modal.context';
 
 export const AagDashboard = () => {
   const [dashActive, setDashActive] = useState(false);
+  const { show } = useContext(ModalContext);
   const { darkMode, changeTheme } = useContext(ThemeContext);
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng: string | undefined) => {
@@ -39,6 +41,7 @@ export const AagDashboard = () => {
             dashActive && styles.active,
             darkMode && styles.dark
           )}
+          style={{ pointerEvents: show ? 'none' : 'auto' }}
         >
           {dashActive && (
             <span
@@ -110,6 +113,7 @@ export const AagDashboard = () => {
             <div
               className={cx(styles.btn)}
               onClick={() => setDashActive(!dashActive)}
+              style={{ pointerEvents: show ? 'none' : 'auto' }}
             >
               {!dashActive && width > 600 && <IoCloudyNightOutline />}
               {!dashActive && width < 600 && <IoMenuOutline />}
