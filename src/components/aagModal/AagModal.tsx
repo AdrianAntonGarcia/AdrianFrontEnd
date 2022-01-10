@@ -9,9 +9,9 @@ interface Props {
   show: boolean;
   showCancelButton?: boolean;
   showSuccessButton?: boolean;
-  textCancel: string;
-  textModal: string;
-  textSuccess: string;
+  textCancel?: string;
+  textModal?: string;
+  textSuccess?: string;
 }
 export const AagModal = ({
   darkTheme = false,
@@ -20,9 +20,9 @@ export const AagModal = ({
   show = true,
   showCancelButton = true,
   showSuccessButton = true,
-  textCancel,
-  textModal,
-  textSuccess,
+  textCancel = '',
+  textModal = '',
+  textSuccess = '',
 }: Props) => {
   const successButton = (
     <AagButton

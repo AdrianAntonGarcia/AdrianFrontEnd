@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { LoginResponse } from '../interfaces';
+import { ModalContext } from '../context/Modal.context';
 
-export const UserLogin = () => {
+export const useLogin = () => {
   const [loginResponse, setLoginResponse] = useState<LoginResponse>(
     {} as LoginResponse
   );
+  const { setModalText, openModal } = useContext(ModalContext);
 
   /**
    * Función que realiza el login del usuario llamando al servicio de login
@@ -16,17 +18,24 @@ export const UserLogin = () => {
     const params = new URLSearchParams();
     params.append('email', email);
     params.append('password', password);
-    // console.log(params);
-    const response = await axios
+    const { data } = await axios
       .post<LoginResponse>(
         `${process.env.REACT_APP_API_URL}/api/auth/login`,
         params
       )
       .catch((err) => {
-        console.log(err.response.data.errorMsg);
         return { data: err.response.data };
       });
-    console.log(response.data);
+    if (data.ok) {
+      setLoginResponse(data);
+      localStorage.setItem('token', data.token);
+      setModalText('Login correcto');
+      openModal();
+    } else {
+      localStorage.removeItem('token');
+      setModalText(data.errorMsg);
+      openModal();
+    }
   };
   return { login, loginResponse };
 };

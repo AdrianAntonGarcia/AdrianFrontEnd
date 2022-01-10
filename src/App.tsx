@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { ThemeChangerProvider } from './context';
+import { ModalProvider, ThemeChangerProvider } from './context';
 import { Navigation } from './routes';
 import './scss/globalStyles.scss';
 import { AagDashboard } from './routes';
@@ -11,7 +11,9 @@ export default function App() {
     return (
       <Suspense fallback="loading">
         <ThemeChangerProvider>
-          <AagDashboard />
+          <ModalProvider>
+            <AagDashboard />
+          </ModalProvider>
         </ThemeChangerProvider>
       </Suspense>
     );
