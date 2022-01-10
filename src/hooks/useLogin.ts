@@ -4,17 +4,15 @@ import { LoginResponse } from '../interfaces';
 import { ModalContext } from '../context/Modal.context';
 
 export const useLogin = () => {
-  const [loginResponse, setLoginResponse] = useState<LoginResponse>(
-    {} as LoginResponse
-  );
-  const { setModalText, openModal } = useContext(ModalContext);
-
   /**
    * Función que realiza el login del usuario llamando al servicio de login
    * @param email email del usuario a loguear
    * @param password contraseña del usuario a ingresar
    */
-  const login = async (email: string, password: string) => {
+  const login = async (
+    email: string,
+    password: string
+  ): Promise<LoginResponse> => {
     const params = new URLSearchParams();
     params.append('email', email);
     params.append('password', password);
@@ -26,16 +24,7 @@ export const useLogin = () => {
       .catch((err) => {
         return { data: err.response.data };
       });
-    if (data.ok) {
-      setLoginResponse(data);
-      localStorage.setItem('token', data.token);
-      setModalText('Login correcto');
-      openModal();
-    } else {
-      localStorage.removeItem('token');
-      setModalText(data.errorMsg);
-      openModal();
-    }
+    return data;
   };
-  return { login, loginResponse };
+  return { login };
 };
