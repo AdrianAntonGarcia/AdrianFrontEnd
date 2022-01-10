@@ -57,6 +57,7 @@ export const Login = () => {
         })}
       >
         <Form className={loginStyles.formLogin}>
+          <h1>Login</h1>
           <AagTextInput
             showLabel={true}
             label={t('login.Email')}
