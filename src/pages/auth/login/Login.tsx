@@ -8,9 +8,11 @@ import * as Yup from 'yup';
 import loginStyles from './login.module.scss';
 import { ModalContext } from '../../../context/Modal.context';
 import { useLogin } from '../../../hooks';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { show, modalText, openModal } = useContext(ModalContext);
   const { darkMode } = useContext(ThemeContext);
   const { login } = useLogin();
@@ -20,7 +22,10 @@ export const Login = () => {
         show={show}
         textCancel={''}
         showCancelButton={false}
-        onSuccess={() => openModal()}
+        onSuccess={() => {
+          openModal();
+          navigate('/home');
+        }}
         textSuccess={'Ok'}
         textModal={modalText}
       />
